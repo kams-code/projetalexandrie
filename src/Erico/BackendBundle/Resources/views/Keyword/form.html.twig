@@ -1,0 +1,46 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+
+	<li>
+		<a href="#" class="prev">Mot clé</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition mot clé {% endblock %}
+
+{% block contentForm %}
+
+	{#{{ form_widget(form_keyword) }}#}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_keyword) }}
+	
+	<div class="row">
+	<div class="col-md-8">
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_keyword.designation, "Designation")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_keyword.designation) }}
+			  {{ form_widget(form_keyword.designation, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		
+	</div>
+	</div>
+	
+	<br/>
+	
+   {{ form_rest(form_keyword) }}
+	
+{% endblock %}

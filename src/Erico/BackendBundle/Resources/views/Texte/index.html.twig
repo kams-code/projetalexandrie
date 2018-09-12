@@ -1,0 +1,304 @@
+{% extends "EricoBackendBundle::layout.html.twig" %}
+
+
+{% block page %}
+
+	<li>
+		<a href="#" class="prev">{{ title_prev_link }}</a>
+	</li>
+	
+	<li>
+		{{ texte.designation }}
+	</li>
+	
+{% endblock %}
+
+
+{% block content %}
+
+{#####################################
+<br/><br/><br/>
+{% for item in texte.paragraphes %}
+
+		<a class="" href="{{ path('erico_backend_updatetexte_page', {'title_prev_link':'texte-de-loi', 'id': texte.id, 'paragraphe': item.id})}}" title="modifier">
+			
+			<i class="glyphicon glyphicon-edit icon-white"></i>
+			
+		</a>
+		
+		<a class="" href="#" title="supprimer">
+			<i class="glyphicon glyphicon-trash icon-white"></i>
+		</a>
+			
+		{{ item.texte.designation }} - {{ item.designation }}
+		<br/>
+		
+		{% for fil in item.fils %}
+			{{ fil.designation }} 
+			<br/>
+		{% endfor %}
+		
+		<br/><br/>
+		
+{% endfor %}
+
+
+	{{ texte.jsonParagraphes}}
+######################################}
+
+	<div class="row">
+		
+		
+		<div class="col-sm-7" >
+		  
+		{{ texte.page|raw }} 
+		  
+		 
+        </div>
+		
+		
+        <div class="col-sm-5"   style="z-index:1000">
+		  
+		  <style>
+					 
+			  .affix {
+				  top:20px;
+			  }
+			 
+		  </style>
+		  <div class="" data-spy="affix" data-offset-top="100">
+			  <a href="{{ path('erico_backend_addtexte_page', {'title_prev_link':title_prev_link, 'id': texte.id}) }}"><h2 > <i class="glyphicon glyphicon-plus"></i> Ajouter un titre</h2> </a>
+			  
+			  <div id="treeview1" class="" style=" height:400px; overflow:auto; padding:5px"></div>
+		  </div>
+		  
+        </div>
+		
+		
+		{###
+		<div class="col-sm-9"  style="z-index:1000">
+		  
+		  <a href="{{ path('erico_backend_addtexte_page', {'title_prev_link': title_prev_link, 'id': texte.id}) }}"><h2 > <i class="glyphicon glyphicon-plus"></i> Ajouter un titre</h2> </a>
+          
+          <div id="treeview1" class="" style="padding:5px"></div>
+		  
+        </div>
+		###}
+		
+		
+    </div>
+	 
+	
+	<div class="modal" id="orderModal">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">x</button>
+			<h4 class="modal-title">Déplacement de titre</h4>
+		  </div>
+		  <div class="modal-body" >
+			
+			<div class="row">
+				<h2></h2>
+				<ul class="list-group list-group-sortable-handles" id="list-group-sortable-handles">
+					<li class="list-group-item"><span class="glyphicon glyphicon-move"></span> Cras justo odio</li>
+					<li class="list-group-item"><span class="glyphicon glyphicon-move"></span> Dapibus ac facilisis in</li>
+					<li class="list-group-item"><span class="glyphicon glyphicon-move"></span> Morbi leo risus</li>
+					<li class="list-group-item"><span class="glyphicon glyphicon-move"></span> Porta ac consectetur ac</li>
+					<li class="list-group-item"><span class="glyphicon glyphicon-move"></span> Vestibulum at eros</li>
+				</ul>
+			</div>
+			<button  class="btn btn-info" id="sendorder" style="display:none;">Enregistrer</button> <span style="display:none;" id="loading"><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>Enregistrement en cours ...</span>
+		  </div>
+		  <div class="modal-footer">
+			<button  class="btn btn-info" data-dismiss="modal">Fermer</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+	<!-- boostrap tree view -->
+
+<script type="text/javascript">
+
+  		$(function() {
+
+				var defaultData = [
+				  {
+					text: 'Parent 1',
+					href: '#parent1',
+					tags: ['4'],
+					nodes: [
+					  {
+						text: 'Child 1',
+						href: '#child1',
+						tags: ['2'],
+						nodes: [
+						  {
+							text: 'Grandchild 1',
+							href: '#grandchild1',
+							tags: ['0']
+						  },
+						  {
+							text: 'Grandchild 2',
+							href: '#grandchild2',
+							tags: ['0']
+						  }
+						]
+					  },
+					  {
+						text: 'Child 2',
+						href: '#child2',
+						tags: ['0']
+					  }
+					]
+				  },
+				  {
+					text: 'Parent 2',
+					href: '#parent2',
+					tags: ['0']
+				  },
+				  {
+					text: 'Parent 3',
+					href: '#parent3',
+					 tags: ['0']
+				  },
+				  {
+					text: 'Parent 4',
+					href: '#parent4',
+					tags: ['0']
+				  },
+				  {
+					text: 'Parent 5',
+					href: '#parent5'  ,
+					tags: ['0']
+				  }
+				];
+				
+				var $tree = $('#treeview1').treeview({
+				  enableLinks: true,
+				  levels: 99,
+				  showTags: true,
+				  showCheckbox: true,
+				  data: JSON.parse({{ texte.jsonParagraphes|json_encode|raw }}) // ou tout simplement {{ texte.jsonParagraphes|json_encode|raw }} car le plugin boostrap stree view va se charger de parser
+				  //data: defaultData
+				});
+		});
+		
+</script>
+
+
+<script type="text/javascript">
+		
+		
+
+  		$(function() {
+			
+			$("body").on("click", ".orderlink", function(){
+		
+				$('#list-group-sortable-handles').html('<center><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i> Chargement...</center></p>')
+
+				$('#orderModal').modal('show');
+				
+				
+				$.ajax({
+					
+						url: '{{ path('erico_backend_brothertexte_page')}}?idparent=' + $(this).data('parent') + '&idtexte=' + $(this).data('texte'),
+						type: 'GET',
+						timeout:6000,
+						dataType: 'json', // selon le retour attendu
+						success: function (response) {
+						
+							var l="";
+							for (var i = 0; i < response.length; i++) {
+						
+								//l += response[i].designation;
+								l += '<li class="list-group-item" data-id="' + response[i].id +'"><span class="glyphicon glyphicon-move"></span>' +  response[i].designation + '</li>';
+								
+								//activation du button enregistrer
+								$('#sendorder').css('display','block');
+							}
+							//alert(l);
+							
+							$('#list-group-sortable-handles').html(l);
+							
+							//on active le tri des resultats
+							
+							$('.list-group-sortable-handles').sortable({
+									placeholderClass: 'list-group-item',
+									handle: 'span'
+							});
+				
+						
+							
+						},
+						error: function(){
+						
+							alert('la requete n a pas abouti');
+							
+						}
+						
+				});
+					
+			
+			});
+		
+			
+			$('#sendorder').on('click', function (event) {
+				var paragraphes = [];
+				 $('.list-group-sortable-handles > li').each(function(index){
+					  //result += $(this).data('id') +", ";
+					  paragraphes.push($(this).data('id'));
+				 });
+				 
+				 $(this).css('display','none');
+				 $('#loading').css('display','block');
+				 
+				$.ajax({
+					
+					url: '{{ path('erico_backend_saveordertexte_page')}}?paragraphes=' + paragraphes,
+					type: 'GET',
+					timeout:6000,
+					dataType: 'text', // selon le retour attendu
+					success: function (response) {
+						
+						if(response == 'ok')
+						{
+							document.location.reload(true);
+						}
+						else
+						{
+							alert(response);
+							$(this).css('display','block');
+							$('#loading').css('display','none');
+						}
+						
+					},
+					error: function(){
+					
+						alert('la requete n a pas abouti');
+						$(this).css('display','block');
+						$('#loading').css('display','none');
+						
+					}
+						
+				});
+				
+				
+				//alert(result);
+				
+				
+			});	
+			
+			
+		});
+		
+		
+		
+</script>
+
+{% endblock %}

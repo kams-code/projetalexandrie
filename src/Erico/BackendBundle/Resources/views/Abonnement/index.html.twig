@@ -1,0 +1,131 @@
+{% extends "EricoBackendBundle::liste.html.twig" %}
+
+{% block page %}
+	<li>
+		Utilisateurs
+	</li>
+	
+{% endblock %}
+	
+	
+{% block contentTablehead %}
+	<th class="col-xs-1" data-field="id" data-sortable="true">ID</th>
+	<th class="col-xs-2" data-field="pseudo" data-sortable="true">Designation</th>
+	<th class="col-xs-2" data-field="name" data-sortable="true">Durée</th>
+	<th class="col-xs-4" data-field="email" data-sortable="true">Prix</th>
+	<th class="col-xs-1" data-field="action" > </th>
+{% endblock %}
+
+{% block contentTableBody %}
+
+{% for item in abonnements %}
+	<tr>
+		<td>{{ item.id }}</td>
+		<td>{{ item.designation }}</td>
+		<td>{{ item.duration }}</td>
+		<td> {{ item.price }} </td>
+		
+		<td class="center">
+			<div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Actions
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+						<a class="" href="{{ path('erico_backend_updateabonnement_page', {'id': item.id})}}">
+							<i class="glyphicon glyphicon-edit icon-white"></i>
+							Modifier
+						</a>
+					</li>
+					
+					<!-- <li class="divider"></li>
+					<li>
+						<a class="delete-user" href="#"  data-id="{{item.id}}" data-pseudo="{{item.designation}}">
+						<i class="glyphicon glyphicon-trash icon-white"></i>
+						Supprimer
+					</a>
+					</li> -->
+                </ul>
+            </div>
+			
+			
+			
+		</td>
+	</tr>
+{% endfor %}
+
+{% endblock %}
+
+{% block javascripts %}  
+
+{{ parent() }}
+<!------------------------------------------- script delete user ------------------------------------------------->
+<script>
+$( document ).ready( function() {
+
+	//on applique l'évènement sur tout le body car il y a reconstruction du DOM par le plugin bootstrap-table
+	$('body').on('click', '.delete-user', function (event) {
+		
+		var user =  $(this);
+		//alert('');
+		swal({
+		  title: "Vous êtes sur le point de supprimer cet utilisateur : " ,
+		  text: user.data('pseudo'),
+		  type: "warning",
+		  showCancelButton: true,
+		  cancelButtonText: "Annuler",
+		  confirmButtonColor: "#DD6B55",
+		  confirmButtonText: "Continuer",
+		  closeOnConfirm: false,
+		  showLoaderOnConfirm: true,
+		},
+		function(){
+		  
+			// on ferme l'alerte
+			//swal.close();
+			//swal.disableButtons();
+			//myTable.row( this ).delete();
+			//supp
+			
+			
+			$.ajax({
+				url: '{{ path('erico_backend_deleteuser_page')}}?iduser=' + user.data('id'),
+				type: 'GET',
+				dataType: 'text', // selon le retour attendu
+				timeout: 60000, //une minute pour executer sinon error
+				success: function (response) {
+					
+					if(response=="ok")
+					{
+						document.location.reload(true);
+					}
+					else
+					{
+						swal.enableButtons();
+						swal("Echec de l'opération", response, "error");
+						
+					}
+					
+					
+					
+				},
+				error: function(){
+					//alert('la requete n a pas abouti');
+					swal.enableButtons();
+					swal("ERREUR!", 'la requete n a pas abouti', "error")
+				}
+			});
+			
+		  
+		});
+
+		
+		
+	
+	});
+	
+} );
+</script>
+	
+{% endblock %}

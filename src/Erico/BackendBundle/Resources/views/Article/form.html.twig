@@ -1,0 +1,239 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#" class="prev">Article</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Article {% endblock %}
+
+{% block contentForm %}
+
+	{# {{ form_widget(form_article) }} #}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_article) }}
+	
+	<div class="row">
+	<div class="col-md-6">
+	
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_article.imageIntro, "Image")}} :
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_article.imageIntro) }}
+			  {{ form_widget(form_article.imageIntro, {'attr':{'class':'form-control imageIntro'}}) }}
+			  
+			  <img src="" style="width:100%" class="img-responsive img-article" alt=""><br/>
+			  <a href="#" class="btn btn-default buttonImg">Selectionner une image</a>
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_article.designation, "Titre")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_article.designation) }}
+			  {{ form_widget(form_article.designation, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_article.categorie, "Catégorie  par defaut")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_article.categorie) }}
+			  {{ form_widget(form_article.categorie, {'attr':{'class':'form-control  selectcat'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<a href="#" class="addcatlink"><i class="glyphicon glyphicon-plus"></i>  ajouter une nouvelle catégorie... </a>
+
+		<br/>
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_article.categories, "Catégorie (s) associée (s)")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_article.categories) }}
+			  {{ form_widget(form_article.categories, {'attr':{'class':'form-control  selectcat'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<a href="#" class="addcatlink"><i class="glyphicon glyphicon-plus"></i>  ajouter une nouvelle catégorie... </a>
+		
+		<br/><br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_article.keywords, "Mot clé (s)")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_article.keywords) }}
+			  {{ form_widget(form_article.keywords, {'attr':{'class':'form-control  selectkey'}}) }}
+			  
+			  </div>
+			  
+			</div>
+		</div>
+		<a href="#" class="addkeylink"><i class="glyphicon glyphicon-plus"></i>  ajouter un nouveau mot clé... </a>
+		
+		<br/><br/>
+		
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_article.datePublish, "Publié le ")}} : 
+			  </div>
+			  
+			  <div class="col-md-4">
+			  {{ form_errors(form_article.datePublish) }}
+			  {{ form_widget(form_article.datePublish, {'attr':{'class':''}}) }}
+			  </div>
+			  
+			  <div class="col-md-3">
+			  {{ form_errors(form_article.publier) }}
+			  {{ form_widget(form_article.publier, {'attr':{'class':'form-control iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/><br/>
+		
+		
+	</div>	
+	
+	<div class="col-md-6">
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_article.description, "Texte")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_article.description) }}
+			  {{ form_widget(form_article.description, {'attr':{'class':'form-control texteditor'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+	</div>	
+	
+	</div>	
+	
+	{{ form_rest(form_article) }}
+	
+	<!-- popup elfinder  -->
+	<div class="modal" id="mediatheque">
+		  <div class="modal-dialog modal-lg" style="width:75%; margin:auto; margin-top:50px;">
+			<div class="modal-content" style="background:black">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">x</button>
+				<h4 class="modal-title">Médiathèque</h4>
+			  </div>
+			  <div class="modal-body">
+				<div id="elfinder"></div><br/><br/><br/>
+			  </div>
+			</div>
+		  </div>
+	</div>
+	
+{% endblock %}
+
+{% block scriptsElFinder %}
+
+	<script type="text/javascript" charset="utf-8">
+    
+		$().ready(function() {
+		
+			//chargement de l'image
+			if ($('.imageIntro').val() != "")
+			{
+				$('.img-article').attr('src', $('.imageIntro').val());
+			}
+			
+		
+			$('.buttonImg').on('click', function (event) {
+		
+				//retour à la page précédente
+				$('#mediatheque').modal('show');
+			
+			});
+			
+		   var elf = $('#elfinder').elfinder({
+		   
+				height:'400',	
+				url : '{{ asset('bundles/ericobackend/bower_components/elFinder-2.0.7/php/connector.minimal.php') }}',  // connector URL (REQUIRED)
+				lang: 'fr',				
+				resizable:false,
+				rememberLastDir :true,
+				onlyMimes: ["image"], // display all images
+				validName: true,
+				getFileCallback : function(file) {
+					
+					//fileUrl =   file.url.substring(8); //on elnlève le debut de la chaine /upload/ (8 caractères)
+					
+					/*if( addimg($('.inputimgselect'), fileUrl) )
+					{
+						$('.modal').modal('hide');
+						
+					}*/
+					
+					$('.imageIntro').val(file.url);
+					
+					$('.img-article').attr('src', file.url);
+					
+					$('#mediatheque').modal('hide');
+					
+				},
+			}).elfinder('instance');   
+			
+		});
+		
+	</script>
+
+{% endblock %}

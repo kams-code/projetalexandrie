@@ -1,0 +1,261 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#" class="prev">Utilisateurs</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Utilisateur {% endblock %}
+
+{% block contentForm %}
+
+	{# {{ form_widget(form_user) }} 	#}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	
+	{{ form_errors(form_user) }}
+	
+	<div class="row">
+	<div class="col-md-6">
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_user.expiration, "Date d'expiration abonnement")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.expiration) }}
+			  {{ form_widget(form_user.expiration, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_user.username, "Pseudo")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.username) }}
+			  {{ form_widget(form_user.username, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+				
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_user.name, "Nom")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.name) }}
+			  {{ form_widget(form_user.name, {'attr':{'class':'form-control'}}) }}
+			  
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_user.email, "Email ")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.email) }}
+			  {{ form_widget(form_user.email, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_user.plainPassword, "Mot de passe")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.plainPassword) }}
+			  {{ form_widget(form_user.plainPassword, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+				
+			  <div class="col-md-2">
+			  {{ form_errors(form_user.isActive) }}
+			  {{ form_widget(form_user.isActive, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			  <div class="col-md-1">
+			  {{ form_label(form_user.isActive, "Actif")}} 
+			  </div>
+			  
+			 
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_user.roles, "Rôles")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.roles) }}
+			  {{ form_widget(form_user.roles, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_user.tel, "Téléphone")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.tel) }}
+			  {{ form_widget(form_user.tel, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_user.pays, "Pays")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.pays) }}
+			  {{ form_widget(form_user.pays, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_user.ville, "Ville")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.ville) }}
+			  {{ form_widget(form_user.ville, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_user.status, "Status")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.status) }}
+			  {{ form_widget(form_user.status, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_user.adresse, "Adresse")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_user.adresse) }}
+			  {{ form_widget(form_user.adresse, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  
+			  <div class="col-md-2">
+			  {{ form_errors(form_user.newletter) }}
+			  {{ form_widget(form_user.newletter, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			  <div class="col-md-2">
+			  {{ form_label(form_user.newletter, "Newsletter")}}
+			  </div>
+			  
+			  
+			</div>
+		</div>
+		
+		<br/><br/>
+		
+	</div>	
+	
+	
+	
+	</div>	
+	
+	{{ form_rest(form_user) }}
+	
+
+	
+	
+{% endblock %}

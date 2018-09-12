@@ -1,0 +1,30 @@
+<?php
+
+namespace Erico\ApiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Page
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Erico\ApiBundle\Entity\PageRepository")
+ */
+class Page extends Publication
+{
+    
+	/**
+	* @ORM\ManyToOne(targetEntity="Erico\ApiBundle\Entity\Page", inversedBy="fils")
+	* @ORM\JoinColumn(nullable=true)
+	*/
+	private $parent;
+	
+	
+	/**
+	* @ORM\OneToMany(targetEntity="Erico\ApiBundle\Entity\Page",
+	mappedBy="parent")
+	*/
+	private $fils; 
+    
+}
+

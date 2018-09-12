@@ -1,0 +1,570 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#" class="prev">Produit</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Produit {% endblock %}
+
+{% block contentForm %}
+
+	{# {{ form_widget(form_produit) }} #}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_produit) }}
+	
+	<div class="row">
+	<div class="col-md-6">
+	
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.imageIntro, "Image")}} :
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_produit.imageIntro) }}
+			  {{ form_widget(form_produit.imageIntro, {'attr':{'class':'form-control imageIntro'}}) }}
+			  
+			  <img src="" style="width:100%" class="img-responsive img-article" alt=""><br/>
+			  <a href="#" id="imageIntro" class="btn btn-default buttonImg">Selectionner une image</a>
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.designation, "Designation")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_produit.designation) }}
+			  {{ form_widget(form_produit.designation, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.tarifRegulier, "Prix")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_produit.tarifRegulier) }}
+			  {{ form_widget(form_produit.tarifRegulier, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+
+
+		
+		
+		
+		
+		{##
+		<!-- <div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.declinaisons, "Déclinaisons")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_produit.declinaisons) }}
+			  {{ form_widget(form_produit.declinaisons, {'attr':{'class':'form-control  select-one selectdeclinaison'}}) }}
+			  
+			  </div>
+			  
+			</div>
+		</div>
+		<a href="#" class="" id="adddeclainaison"><i class="glyphicon glyphicon-plus"></i>  ajouter une déclinaison... </a>
+		
+		<br/><br/> -->
+		##}
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.categories, "Catégorie (s) associée (s)")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_produit.categories) }}
+			  {{ form_widget(form_produit.categories, {'attr':{'class':'form-control  selectcat'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<a href="#" class="addcatlink"><i class="glyphicon glyphicon-plus"></i>  ajouter une nouvelle catégorie... </a>
+		
+		<br/><br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.keywords, "Mot clé (s)")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_produit.keywords) }}
+			  {{ form_widget(form_produit.keywords, {'attr':{'class':'form-control  selectkey'}}) }}
+			  
+			  </div>
+			  
+			</div>
+		</div>
+		<a href="#" class="addkeylink"><i class="glyphicon glyphicon-plus"></i>  ajouter un nouveau mot clé... </a>
+		
+		<br/><br/>
+
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.fichier, "Lien fichier téléchargeable")}} : 
+			  </div>
+
+			  <div class="col-md-4">
+				<a href="#" id="fichier" class="btn btn-default buttonImg"> Selectionner un fichier... </a>
+			  </div>
+			  
+			  <div class="col-md-8">
+			  {{ form_errors(form_produit.fichier) }}
+			  {{ form_widget(form_produit.fichier, {'attr':{'class':'form-control fichier'}}) }}
+			  
+			  </div>
+			  
+			</div>
+		</div><br/>
+
+		<br/><br/>
+		
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.datePublish, "Publié le ")}} : 
+			  </div>
+			  
+			  <div class="col-md-4">
+			  {{ form_errors(form_produit.datePublish) }}
+			  {{ form_widget(form_produit.datePublish, {'attr':{'class':''}}) }}
+			  </div>
+			  
+			  <div class="col-md-3">
+			  {{ form_errors(form_produit.publier) }}
+			  {{ form_widget(form_produit.publier, {'attr':{'class':'form-control iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/><br/>
+		
+		
+	</div>	
+	
+	<div class="col-md-6">
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_produit.description, "Description")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_produit.description) }}
+			  {{ form_widget(form_produit.description, {'attr':{'class':'form-control texteditor'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+	</div>	
+	
+	</div>	
+	
+	{{ form_rest(form_produit) }}
+	
+	<!-- popup elfinder  -->
+	<div class="modal" id="mediatheque">
+		  <div class="modal-dialog modal-lg" style="width:75%; margin:auto; margin-top:50px;">
+			<div class="modal-content" style="background:black">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">x</button>
+				<h4 class="modal-title">Médiathèque</h4>
+			  </div>
+			  <div class="modal-body">
+				<div id="elfinder"></div><br/><br/><br/>
+			  </div>
+			</div>
+		  </div>
+	</div>
+	
+	
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ parent() }}
+	
+	<!-- popup Attribut  -->
+	<div class="modal" id="declinaison">
+		  <div class="modal-dialog modal-md" style="">
+			<div class="modal-content" style="">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">x</button>
+					<h4 class="modal-title">Ajout déclinaison produit</h4>
+				</div>
+				<div class="modal-body">
+			  
+					<div class="row">
+					<div class="col-lg-12">
+						<div class="col-md-8">
+						<form id="formDeclinaison">
+						
+							{### {{ form_widget(form_declinaison) }} ###}
+							
+							<div class="row">
+								<div class="form-group">
+								
+								  <div class="col-md-12">
+								  {{ form_label(form_declinaison.attribut, "Attribut")}} : 
+								  </div>
+								  
+								  <div class="col-md-12">
+								  {{ form_errors(form_declinaison.attribut) }}
+								  {{ form_widget(form_declinaison.attribut, {'attr':{'class':'form-control selectattrib'}}) }}
+								  </div>
+								  
+								</div>
+							</div>
+							<a href="#" class="addattrib"><i class="glyphicon glyphicon-plus"></i>  ajouter un attribut... </a>
+							
+							<br/><br/>
+							
+							<div class="row">
+								<div class="form-group">
+								
+								  <div class="col-md-12">
+								  {{ form_label(form_declinaison.designation, "Valeur")}} : 
+								  </div>
+								  
+								  <div class="col-md-12">
+								  {{ form_errors(form_declinaison.designation) }}
+								  {{ form_widget(form_declinaison.designation, {'attr':{'class':'form-control'}}) }}
+								  </div>
+								  
+								</div>
+							</div>
+							
+							<br/>
+							
+							{{ form_rest(form_declinaison) }}
+							<div class="form-group">
+								<button id="sendDecliButton" class="pull-left btn btn-default">Enregistrer</button>
+							</div>
+							<span id="fa-refresh-decli" style="visibility:hidden"> <i  class="fa fa-refresh fa-spin fa-lg fa-fw"></i> Enregistrement en cours...</span>						</form>
+						</div>
+						
+						<div class="col-md-8">
+						<form id="formAttrib" style="display:none">
+						
+							{### {{ form_widget(form_attribut) }} ###}
+							
+							<div class="row">
+								<div class="form-group">
+								
+								  <div class="col-md-12">
+								  {{ form_label(form_attribut.designation, "Attribut")}} : 
+								  </div>
+								  
+								  <div class="col-md-12">
+								  {{ form_errors(form_attribut.designation) }}
+								  {{ form_widget(form_attribut.designation, {'attr':{'class':'form-control'}}) }}
+								  </div>
+								  
+								</div>
+							</div>
+							
+							<br/>
+							
+							<div class="row">
+								<div class="form-group">
+								
+								  <div class="col-md-12">
+								  {{ form_label(form_attribut.description, "Description")}} : 
+								  </div>
+								  
+								  <div class="col-md-12">
+								  {{ form_errors(form_attribut.description) }}
+								  {{ form_widget(form_attribut.description, {'attr':{'class':'form-control'}}) }}
+								  </div>
+								  
+								</div>
+							</div>
+							
+							<br/>
+							
+							{{ form_rest(form_attribut) }}
+							<div class="form-group">
+								<button id="sendAttrButton" class="pull-left btn btn-default">Enregistrer</button>
+							</div>
+							<span id="fa-refresh-attr" style="visibility:hidden"> <i  class="fa fa-refresh fa-spin fa-lg fa-fw"></i> Enregistrement en cours...</span>						</form>
+						</form>
+						</div>
+					</div>
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button   class="btn btn-info" data-dismiss="modal">Fermer</button>
+				</div>
+				
+			</div>
+		  </div>
+	</div>
+	
+	
+	<!-- popup Norme  -->
+	
+	
+	<script>
+
+    $(function() {
+	
+		$('#adddeclainaison').on('click', function (event) {
+			
+			$('#formAttrib')[0].reset();
+			$('#formDeclinaison')[0].reset();
+			
+			$('#formDeclinaison').css('display', 'block');
+			$('#formAttrib').css('display', 'none');
+			$('.addattrib').css('visibility', 'visible');
+			
+			$('#declinaison').modal('show');
+		
+		});
+			
+		$('.addattrib').on('click', function (event) {
+		
+			$('#formDeclinaison').css('display', 'none');
+			$('#formAttrib').css('display', 'block');
+			$(this).css('visibility', 'hidden');
+		
+		});
+		
+		$('#addnorme').on('click', function (event) {
+			
+			$('#norme').modal('show');
+		
+		});
+			
+			
+		$('#formDeclinaison').on('submit', function (event) {
+			
+			// On empêche le navigateur de soumettre le formulaire
+			event.preventDefault();
+			$('#fa-refresh-decli').css('visibility','visible');
+			$('#sendDecliButton').css('display','none');
+			
+			var $form = $(this);
+			var formdata = (window.FormData) ? new FormData($form[0]) : null;
+			var data = (formdata !== null) ? formdata : $form.serialize();
+			
+			$.ajax({
+				url: '{{ path('erico_backend_adddeclinaison_page')}}',
+				type: 'POST',
+				contentType: false, // obligatoire pour de l'upload
+				processData: false, // obligatoire pour de l'upload
+				dataType: 'json', // selon le retour attendu
+				timeout: 60000, //une minute pour executer sinon error
+				data: data,
+				success: function (response) {
+					
+					//alert(" la catégorie " + response.designation + " a été crée avec succès ");
+					$(".selectdeclinaison").prepend('<option value="' + response.id +'" selected>' +  response.designation + '</option>');
+					$('.selectdeclinaison').multiselect('rebuild');
+					
+					$('#formDeclinaison')[0].reset();	
+					$('#fa-refresh-decli').css('visibility','hidden');
+					$('#sendDecliButton').css('display','block');
+					$('#declinaison').modal('hide');
+				},
+				error: function(){
+					
+					alert('la requete n a pas abouti');
+					$('#fa-refresh-decli').css('visibility','hidden');
+					$('#sendDecliButton').css('display','block');
+				}
+			});
+			
+			
+		});
+		
+		
+	
+		$('#formAttrib').on('submit', function (event) {
+			
+			// On empêche le navigateur de soumettre le formulaire
+			event.preventDefault();
+			
+			
+			$('#fa-refresh-attr').css('visibility','visible');
+			$('#sendAttrButton').css('display','none');
+			
+			var $form = $(this);
+			var formdata = (window.FormData) ? new FormData($form[0]) : null;
+			var data = (formdata !== null) ? formdata : $form.serialize();
+			
+			$.ajax({
+				url: '{{ path('erico_backend_addattribut_page')}}',
+				type: 'POST',
+				contentType: false, // obligatoire pour de l'upload
+				processData: false, // obligatoire pour de l'upload
+				dataType: 'json', // selon le retour attendu
+				timeout: 60000, //une minute pour executer sinon error
+				data: data,
+				success: function (response) {
+					
+					$('#formDeclinaison').css('display', 'block');
+					
+					$(".selectattrib").prepend('<option value="' + response.id +'" selected>' +  response.designation + '</option>');
+					//$('.selectkey').multiselect('rebuild');
+					$('#formAttrib')[0].reset();	
+					$('#fa-refresh-attr').css('visibility','hidden');
+					$('#sendAttrButton').css('display','block');
+					
+					$('#formAttrib').css('display', 'none');
+					$('.addattrib').css('visibility', 'visible');
+					
+				},
+				error: function(){
+					
+					alert('la requete n a pas abouti');
+					$('#fa-refresh-attr').css('visibility','hidden');
+					$('#sendAttrButton').css('display','block');
+				}
+			});
+			
+		});
+		
+		
+		
+		
+		
+	});
+	
+	</script>
+	
+{% endblock %}
+
+
+
+{% block scriptsElFinder %}
+	
+	<script type="text/javascript" charset="utf-8">
+		
+		var elem = "";
+		$().ready(function() {
+		
+			//chargement de l'image
+			if ($('.imageIntro').val() != "")
+			{
+				$('.img-article').attr('src', $('.imageIntro').val());
+			}
+			
+		
+			$('.buttonImg').on('click', function (event) {
+		
+				elem = $(this).attr('id');
+				
+				$('#mediatheque').modal('show');
+			
+			});
+			
+			
+			
+		   var elf = $('#elfinder').elfinder({
+		   
+				height:'400',	
+				url : '{{ asset('bundles/ericobackend/bower_components/elFinder-2.0.7/php/connector.minimal.php') }}',  // connector URL (REQUIRED)
+				lang: 'fr',				
+				resizable:false,
+				rememberLastDir :true,
+				//onlyMimes: ["image"], // display all images
+				validName: true,
+				getFileCallback : function(file) {
+					
+					//fileUrl =   file.url.substring(8); //on elnlève le debut de la chaine /upload/ (8 caractères)
+					
+					/*if( addimg($('.inputimgselect'), fileUrl) )
+					{
+						$('.modal').modal('hide');
+						
+					}*/
+					
+					if( elem  == 'imageIntro' )
+					{
+						$('.imageIntro').val(file.url);
+						$('.img-article').attr('src', file.url);
+					}
+
+					if( elem == 'fichier')
+					{
+						var splitted = file.path.split("\\");
+						var t = "";
+						for (var i = 0; i < splitted.length ; i++) {
+							if(i != splitted.length-1)
+							t += splitted[i] +'/';
+							else
+							t += splitted[i];
+						}
+
+						//var myRegEx = new RegExp("\\","gm");
+						//var  urlfichier  = file.path.replace(myRegEx, '/');
+
+						$('.fichier').val(t);
+
+						//$('.fichier').val(file.url);
+
+					}
+
+					
+
+					
+					$('#mediatheque').modal('hide');
+					
+				},
+			}).elfinder('instance');   
+			
+		});
+		
+	</script>
+
+{% endblock %}

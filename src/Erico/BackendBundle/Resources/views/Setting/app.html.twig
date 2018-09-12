@@ -1,0 +1,246 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#">paramètres</a>
+	</li>
+{% endblock %}
+	
+
+{% block formTitle %}  Édition paramètres {% endblock %}
+
+{% block contentForm %}
+
+	
+	{# {{ form_widget(form_setting) }} #}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	
+	
+	{{ form_errors(form_setting) }}
+	
+	<div class="row">
+	
+	<div class="col-md-6">
+	
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.htmlheader, "header html")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.htmlheader) }}
+			  {{ form_widget(form_setting.htmlheader, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.htmlfooter, "footer html")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.htmlfooter) }}
+			  {{ form_widget(form_setting.htmlfooter, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+				
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.piwik, " Piwik ")}} :  
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.piwik) }}
+			  {{ form_widget(form_setting.piwik, {'attr':{'class':'form-control logo'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.copyright, "Copyright")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.copyright) }}
+			  {{ form_widget(form_setting.copyright, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.clientIDPaypal, "votre clientID de Paypal")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.clientIDPaypal) }}
+			  {{ form_widget(form_setting.clientIDPaypal, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.secretPaypal, "votre secret Paypal")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.secretPaypal) }}
+			  {{ form_widget(form_setting.secretPaypal, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.envPaypal, "Environnement d'exécution de Paypal")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.envPaypal) }}
+			  {{ form_widget(form_setting.envPaypal, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.javascriptPaypal, "Activation javascript Paypal")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.javascriptPaypal) }}
+			  {{ form_widget(form_setting.javascriptPaypal, {'attr':{'class':'form-control  iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+	</div>	
+	
+	
+	</div>	
+	
+	{{ form_rest(form_setting) }}
+	
+	
+	
+{% endblock %}
+
+
+{% block javascripts %}
+
+	{{ parent() }}
+	<script>
+	
+		$( document ).ready( function() {
+		
+			$('#main-form').on('submit', function (event) {
+			
+				// On empêche le navigateur de soumettre le formulaire
+				event.preventDefault();
+				
+				//$('#button-submit').button('loading');
+				
+				//alert($('#secondarymenu').val());
+				swal({
+				  title: "Confirmer l'enregistrement des paramètres" ,
+				  text: "",
+				  type: "warning",
+				  showCancelButton: true,
+				  cancelButtonText: "Annuler",
+				  confirmButtonColor: "#DD6B55",
+				  confirmButtonText: "Enregistrer",
+				  closeOnConfirm: false,
+				  showLoaderOnConfirm: true,
+				},
+				function(){
+				  
+					//$('#button-submit').button('loading');
+					
+					var $form = $('#main-form');
+					var formdata = (window.FormData) ? new FormData($form[0]) : null;
+					var data = (formdata !== null) ? formdata : $form.serialize();
+					
+					$.ajax({
+						url: document.location,
+						type: 'POST',
+						contentType: false, // obligatoire pour de l'upload
+						processData: false, // obligatoire pour de l'upload
+						dataType: 'text', // selon le retour attendu
+						timeout: 60000, //une minute pour executer sinon error
+						data: data,
+						success: function (response) {
+							
+							
+							if(response == "ok")
+							{
+								swal("enregistrement effectué!", "", "success");
+							}
+							else
+							{
+								swal("enregistrement non effectué!", "", "error");
+							}
+						},
+						error: function(){
+							swal.enableButtons();
+							swal("ERREUR!", 'la requete n a pas abouti', "error")
+							
+						}
+					});
+				
+				});
+				
+			});
+			
+		} );
+    </script>
+
+{% endblock %}
+

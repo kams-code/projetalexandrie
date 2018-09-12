@@ -1,0 +1,197 @@
+{% extends "AlexandrieFrontendBundle::layout2.html.twig" %}
+
+
+{% block style %} 
+	
+	<style>
+	 
+	  .affix {
+		  top:20px;
+	  }
+	  
+	</style>
+{% endblock %}
+
+
+{% block sideBar %}
+<div class="page-header">
+    <h2><strong>Filtrer les résultats</strong><br></h2>
+</div>
+
+<div class="hidden-xs hidden-sm" data-spy="affix" data-offset-top="400"   style="width:100%; max-width:350px; max-height:550px; overflow:auto; z-index:1000;">
+	<div class="panel-group" role="tablist" aria-multiselectable="true" id="accordion-1">
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab">
+				<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="true" href="#accordion-1 .item-1">Catégories</a></h4>
+			</div>
+			<div class="panel-collapse collapse in item-1" role="tabpanel" style="padding:10px;padding-top:20px;"><div id="treeview1"  >  </div></div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab">
+				<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-2">Thématiques</a></h4>
+			</div>
+			<div class="panel-collapse collapse item-2" role="tabpanel">
+				<div class="panel-body"><a href="#">Civil (655)</a></div>
+				<div class="panel-body"><a href="#">Pénal (4585)</a></div>
+				<div class="panel-body"><a href="#">Affaires (4555)</a></div>
+				<div class="panel-body"><a href="#">Social (235)</a></div>
+				<div class="panel-body"><a href="#">Administratif (895)</a></div>
+				<div class="panel-body"><a href="#">Immobilier, construction et urbanisme &nbsp;(30986)</a></div>
+				<div class="panel-body"><a href="#">Environnement et nuisances&nbsp;(655)</a></div>
+				<div class="panel-body"><a href="#">Assurance (655)</a></div>
+				<div class="panel-body"><a href="#">Finance et fiscalité (20185)</a></div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab">
+				<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-3">Date</a></h4>
+			</div>
+			<div class="panel-collapse collapse item-3" role="tabpanel">
+				<div class="panel-body"><a href="#">2018 (5890)</a></div>
+				<div class="panel-body"><a href="#">2017 (5890)</a></div>
+				<div class="panel-body"><a href="#">2016 (5890)</a></div>
+				<div class="panel-body"><a href="#">2015 (5890)</a></div>
+				<div class="panel-body"><a href="#">2014 (5890)</a></div>
+				<div class="panel-body"><a href="#">2015 (5890)</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+	
+	{### {{ dump(posts) }} ###}
+
+<center>
+<nav>
+	<ul class="pagination">
+		{{ page|raw }}
+		
+	</ul>
+</nav>
+</center>
+	
+<ul class="list-group">
+
+	{% for entity in result %}
+		
+		<li class="list-group-item">
+			<div class="media">
+				<div class="media-left"><a><input type="checkbox"></a></div>
+				<div class="media-body">
+					<div class="media" style="overflow:visible;">
+						<div class="media-left"><a></a></div>
+						<div class="media-body" style="overflow:visible;">
+							<div class="row">
+								<div class="col-xs-10">
+									<h5><a class="text-danger" href="{{ entity.link }}"><strong>{{ entity.titre|raw }}</strong><br></a></h5>
+									<p class="text-justify text-success">Texte de Loi / Mise à jour le 4 février 2018<br> <small class="text-muted"><strong>Résumé :&nbsp;</strong> {{ entity.sum|raw }} <br><br></small></p>
+								</div>
+								<div class="col-xs-2">
+									<div class="dropdown pull-right"><button class="btn btn-link btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"> <i class="fa fa-chevron-down"></i></button>
+										<ul class="dropdown-menu dropdown-menu-right"
+											role="menu">
+											<li role="presentation"><a href="#"><i class="fa fa-heart fa-fw"></i>&nbsp;Ajouter à ma selection</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	
+	{% endfor %}
+	
+	
+</ul>
+
+<center>
+<nav>
+	<ul class="pagination">
+		{{ page|raw }}
+		
+	</ul>
+</nav>
+</center>
+
+{% endblock %}
+
+{% block script %}
+	<script>
+
+		$(function() {
+		
+			
+			
+			var defaultData = [
+			  {
+				text: 'Texte de loi',
+				href: '#parent1',
+				tags: ['243'],
+				nodes: [
+				  {
+					text: 'Code du commerce',
+					href: '#child1',
+					tags: ['2'],
+				  },
+				  {
+					text: 'Code de l\'aviation civil',
+					href: '#child2',
+					tags: ['0']
+				  }
+				]
+			  },
+			  {
+				text: 'Jurisprudence',
+				href: '#parent2',
+				tags: ['459'],
+				nodes: [
+				  {
+					text: 'Chambre de l\'application des peines ',
+					href: '#child1',
+					tags: ['2'],
+				  },
+				  {
+					text: 'Conseil constitutionnel',
+					href: '#child2',
+					tags: ['0']
+				  }
+				]
+			  },
+			  {
+				text: 'Doctrine',
+				href: '#parent3',
+				 tags: ['876']
+			  },
+			  
+			];
+			
+			
+			var $tree = $('#treeview1').treeview({
+			  enableLinks: true,
+			  levels: 2,
+			  showTags: true,
+			  showCheckbox: false,
+			  color: "#2e3192",
+			  highlightSelected: true,
+			  selectedColor: "white",
+			  selectedBackColor: "#3b5998",
+			  onhoverColor: "#bdbdbd",
+			  showBorder: true,
+			  backColor: "#f8f8f8",
+			  data: defaultData 
+			  
+			});
+			
+			
+
+		});
+		
+	</script>            
+{% endblock %}

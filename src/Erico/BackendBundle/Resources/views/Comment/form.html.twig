@@ -1,0 +1,74 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#" class="prev">Commentaire</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Commentaire {% endblock %}
+
+{% block contentForm %}
+
+	{#  {{ form_widget(form_comment) }} #}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_comment) }}
+	
+	<div class="row">
+	<div class="col-md-8">
+	
+		<div class="row">
+			<div class="form-group">
+			
+			 <div class="col-md-12">
+			  {{ form_label(form_comment.approuver, "Approuver")}} : 
+			 </div>
+			  
+			  <div class="col-md-3">
+			  {{ form_errors(form_comment.approuver) }}
+			  {{ form_widget(form_comment.approuver, {'attr':{'class':'form-control iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_comment.description, "Description")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_comment.description) }}
+			  {{ form_widget(form_comment.description, {'attr':{'class':'form-control  texteditor'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		
+		
+	</div>	
+	
+	<div class="col-md-6">
+		
+		
+		
+	</div>	
+	
+	</div>	
+	
+	{{ form_rest(form_comment) }}
+	
+	
+	
+{% endblock %}
+

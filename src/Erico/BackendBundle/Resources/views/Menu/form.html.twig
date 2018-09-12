@@ -1,0 +1,415 @@
+{% extends "EricoBackendBundle::layout.html.twig" %}
+
+{% block style %} 
+	<link  href="{{ asset('bundles/ericobackend/Drag-Drop-Menu-Builder-For-Bootstrap/bs-iconpicker/css/bootstrap-iconpicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+
+{% block page %}
+	<li>
+		<a href="#">Menu</a>
+	</li>
+{% endblock %}
+	
+
+{% block content %}
+
+	
+	<div class="row">
+		
+		<div class="modal" id="editItem-modal">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">x</button>
+				<h4 class="modal-title">Edition élément menu</h4>
+			  </div>
+			  <div class="modal-body" >
+			  
+				<div class="row">
+			
+					<div class="panel panel-primary" >
+						<div >
+							<!-- <div class="col-md-12"><h2> Edition élément menu </h2></div> -->
+						</div>
+						<div class="panel-heading">Modification ou ajout d'un élément de menu </div>
+						<div class="panel-body">
+						
+							<form id="frmEdit" class="form-horizontal">
+								
+								<input type="hidden" name="mnu_icon" id="mnu_icon">
+								
+								<div class="form-group">
+									<label for="mnu_text" class="col-sm-2 control-label">Text</label>
+									<div class="col-sm-10">
+										<div class="input-group">
+											<input type="text" class="form-control" id="mnu_text" name="mnu_text" placeholder="Text">
+											<div class="input-group-btn">
+												<button id="mnu_iconpicker" class="btn btn-default" data-iconset="fontawesome" data-icon="" type="button"></button>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="mnu_title" class="col-sm-2 control-label">Titre</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="mnu_title" name="mnu_title" placeholder="Text">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="mnu_typetarget" class="col-sm-2 control-label">Type</label>
+									<div class="col-sm-10">
+										<select id="mnu_typetarget" name="mnu_typetarget" class="form-control">
+											<option value="link">Lien personnalisé</option>
+											<option value="loi">Texte de Loi</option>
+											<option value="juris">Jurisprudence</option>
+											<option value="doc">Documentation</option>
+											<option value="actu">Actualité</option>
+											<option value="page">page</option>
+											<option value="contact">Page de contact</option>
+											<option value="home">Accueil du site</option>
+											<option value="menu-actu">Menu Actualités</option>
+											<option value="cat">Catégorie de publications</option>
+											<option value="cat-actu">Catégorie d'actualités</option>
+											<option value="prod">produit</option>
+											<option value="cat-prod">Catégorie produits</option>
+										</select>
+									</div>
+								</div>
+								
+								<div class="form-group" id="form_group_mnu_target">
+									<label for="target" class="col-sm-2 control-label">Cible</label>
+									<div class="col-sm-10">
+										<input type="hidden"  id="mnu_target" name="mnu_target">
+										<select id="target" name="target" class="form-control select-one">
+											<!-- <option value="0" selected> Selectionner la cible...</option>   -->
+										</select>
+										<span style="visibility:hidden" id="fa-refresh-cible"><i class="fa fa-spinner fa-spin fa-lg fa-fw"></i>Chargement données...</span>
+										
+									</div>
+								</div>
+								
+								<div class="form-group" id="form_group_mnu_href" style="visibility:hidden">
+									<label for="mnu_href" class="col-sm-2 control-label">Lien</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="mnu_href" name="mnu_href" placeholder="URL">
+									</div>
+								</div>
+								
+							</form>
+							
+						</div>
+						<div class="panel-footer">
+							<button type="button" id="btnUpdate" class="btn btn-primary" disabled><i class="fa fa-refresh"></i> Mettre à jour </button>
+							<button type="button" id="btnAdd" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter</button>
+						</div>
+					</div>
+					
+				</div>
+				
+				
+			  </div>
+			  <div class="modal-footer">
+				<button  class="btn btn-info" data-dismiss="modal">Fermer</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		<div class="col-md-3">
+			<form id="form-menu" method="POST" >
+				{### {{ form_widget(form_menu) }} ###}
+				{# Les erreurs générales du formulaire. #}
+	
+				{{ form_errors(form_menu) }}
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="form-group">
+							
+							  <div class="col-md-12">
+							  {{ form_label(form_menu.designation, "Titre")}} : 
+							  </div>
+							  
+							  <div class="col-md-12">
+							  {{ form_errors(form_menu.designation) }}
+							  {{ form_widget(form_menu.designation, {'attr':{'class':'form-control'}}) }}
+							  </div>
+							  
+							</div>
+						</div>
+						
+						
+						<br/>
+						
+						<div class="row" style="visibility:hidden">
+							<div class="form-group">
+							
+							  <div class="col-md-12">
+							  {{ form_label(form_menu.description, "")}} : 
+							  </div>
+							  
+							  <div class="col-md-12">
+							  {{ form_errors(form_menu.description) }}
+							  {{ form_widget(form_menu.description, {'attr':{'class':'form-control menu-description'}}) }}
+							  </div>
+							  
+							</div>
+						</div>
+						
+						{{ form_rest(form_menu) }}
+						
+						<br/>
+					</div>	
+				
+				</div>	
+            </form>
+		</div>
+		
+		<div class="col-md-9">
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix"><h5 class="pull-left">Menu</h5>
+					<div class="pull-right">
+					<button id="btnAdd2" type="button" class="btn btn-default">
+					
+						<i class="fa fa-plus"></i> Ajouter </button>
+					
+					</div>
+				</div>
+				<div class="panel-body" id="cont">
+					<ul id="myList" class="sortableLists list-group">
+					</ul>
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+			<button id="btnOut" type="button" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> Enregistrer</button>
+			</div>
+			
+			<div class="form-group" style="visibility:hidden"><textarea id="out" class="form-control" cols="50" rows="10" ></textarea>
+			</div>
+			
+		</div>
+	</div>
+	
+	<!----------------------------- Procedure pour ajouter un nouvelle attribut.-------------------------------------- 
+	
+	-modifier le formulaire :
+	Ajouter dans le form le champ creer en respectant la nomenclature des champs id et name (debute par 'mnu_')
+	
+	-modification des fonctions js du plugin suivante :
+	createMenu(voir $li.addClass)
+	updateItem(voir itemEdit.data) 
+
+	----------------------------------------------------------------------------------------------------------------->
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+	<script src="{{ asset('bundles/ericobackend/bower_components/Drag-Drop-Menu-Builder-For-Bootstrap/jquery-menu-editor.js') }}"></script>
+	<script src="{{ asset('bundles/ericobackend/bower_components/Drag-Drop-Menu-Builder-For-Bootstrap/bs-iconpicker/js/iconset/iconset-fontawesome-4.2.0.min.js') }}"></script>
+	
+	<script src="{{ asset('bundles/ericobackend/bower_components/Drag-Drop-Menu-Builder-For-Bootstrap/bs-iconpicker/js/bootstrap-iconpicker.min.js') }}"></script>
+	
+	<script>
+		$(document).ready(function () {
+			//var strJson = '[{"text":"Home","icon":"fa-home","href":"http://codeignitertutoriales.com"},{"text":"Youtube","icon":"fa-youtube-square","href":"https://www.youtube.com/user/davicotico"},{"text":"Github","icon":"fa-github","href":"https://github.com/davicotico","target":"_self","title":""},{"text":"Opcion4","icon":"fa-crop"},{"text":"Opcion5","icon":"fa-flask"},{"text":"Opcion6","icon":"fa-map-marker"},{"text":"Opcion7","icon":"fa-search","children":[{"text":"Opcion7-1","icon":"fa-plug"},{"text":"Opcion7-2","icon":"fa-filter"}]}]';
+			var strjson1 = '[{"href":"http://home.com","icon":"fa-home","text":"Home"},{"icon":"fa-bar-chart-o","text":"Opcion2"},{"icon":"fa-cloud-upload","text":"Opcion3"},{"icon":"fa-crop","text":"Opcion4"},{"icon":"fa-flask","text":"Opcion5"},{"icon":"fa-search","text":"Opcion7","children":[{"icon":"fa-plug","text":"Opcion7-1","children":[{"icon":"fa-filter","text":"Opcion7-2","children":[{"icon":"fa-map-marker","text":"Opcion6"}]}]}]}]';
+			var iconPickerOpt = {cols: 4, searchText: "recherche...", labelHeader: '{0} de {1} Pags.', footer: true};
+			var options = {
+				hintCss: {'border': '1px dashed #13981D'},
+				placeholderCss: {'background-color': 'gray'},
+				ignoreClass: 'btn',
+				opener: {
+					active: true,
+					as: 'html',
+					close: '<i class="fa fa-minus"></i>',
+					open: '<i class="fa fa-plus"></i>',
+					openerCss: {'margin-right': '10px'},
+					openerClass: 'btn btn-success btn-xs'
+				}
+			};
+			var editor = new MenuEditor('myList', {listOptions: options, iconPicker: iconPickerOpt, labelEdit: 'Modifier', labelRemove: 'Supprimer'});
+			
+			//on initialise l'editeur pour permettre le deplacement des elements
+			if( $(".menu-description").val()!= '')
+			editor.setData($(".menu-description").val());
+			else
+			editor.setData('[]');
+			
+			/*$('#btnReload').on('click', function () {
+				editor.setData(strjson1);
+			});*/
+			
+			$('#btnOut').on('click', function () {
+				var str = editor.getString();
+				$("#out").text(str);
+				
+				$(".menu-description").val(str);
+				
+				$("#form-menu").submit();
+				
+			});
+			
+			$("#btnAdd").click(function (e) {
+				e.preventDefault();
+				editor.addItem();
+				$('#editItem-modal').modal('hide');
+			});
+			
+			$("#btnAdd2").click(function (e) {
+				editor.reset();
+				
+				//déclencher l'événement on change sur tout les champs du formulaire car le chargement des champs par code ne declenche pas sa donc faut le faire manuel
+				$("#mnu_typetarget").trigger('change');
+				
+				$('.select-one').multiselect('rebuild');
+				$('#editItem-modal').modal('show');
+			});
+			
+			
+			$("#btnUpdate").click(function (e) {
+				e.preventDefault();
+				editor.updateItem();
+				$('#editItem-modal').modal('hide');
+			});
+			
+		});
+	</script>
+		
+	
+	<script>
+
+		$(function() {
+		
+			$("#mnu_typetarget").on('change', function (e) {
+				
+				var typecible = $(this).val();
+				 
+				//ouverture du popup
+				$('#editItem-modal').modal('show');
+
+				if(typecible == "link")
+				{
+					$("#form_group_mnu_href").css('visibility','visible');
+					
+					$("#form_group_mnu_target").css('visibility','hidden');
+					$("#mnu_target").val("");
+					
+					$('.select-one').multiselect('rebuild');
+				}
+				else
+				{
+					//on affecte une valeur vide a l'attribut lien et on le cache
+					$("#mnu_href").val('');
+					$("#form_group_mnu_href").css('visibility','hidden');
+					
+					if(typecible == "loi" || typecible == "juris" || typecible == "doc" || typecible == "actu" || typecible == "page" || typecible == "cat" || typecible == "cat-actu" || typecible == "menu-actu" || typecible == "cat-prod" || typecible == "prod")
+					{
+						
+						$oldval = $("#mnu_target").val();
+						
+						$("#form_group_mnu_target").css('visibility','visible');
+						$('#fa-refresh-cible').css('visibility','visible');
+						
+						$.ajax({
+							url: '{{ path('erico_backend_menugetcible_page')}}?type=' + typecible,
+							type: 'GET',
+							dataType: 'json', // selon le retour attendu
+							timeout: 60000, //une minute pour executer sinon error
+							success: function (response) {
+								
+								$(".select-one").html('');
+								
+								//$(".select-one").append('<option value="" selected> Selectionner la cible...</option>');
+								
+								for (var i = 0; i < response.length; i++) {
+								
+									if($oldval == response[i].id)
+									{
+										$(".select-one").append('<option value="' + response[i].id +'" selected>' +  response[i].designation + '</option>');
+										$("#mnu_target").val($oldval);
+									}
+									else
+									{
+									$(".select-one").append('<option value="' + response[i].id +'" >' +  response[i].designation + '</option>');
+									}
+								}
+								
+								$('.select-one').multiselect('rebuild');
+								
+								$('#fa-refresh-cible').css('visibility','hidden');
+								
+							},
+							error: function(){
+								
+								alert('la requete n a pas abouti');
+								
+								$('#fa-refresh-cible').css('visibility','hidden');
+							}
+						});
+					}
+					else
+					{
+						// cas c'est un lien qu'on pas besoin de choisir le target
+						$("#form_group_mnu_target").css('visibility','hidden');
+						$("#mnu_target").val("");
+					}
+					
+				}
+				
+				
+			});
+			
+			
+			//pour le champ target des id
+			$("#target").on('change', function (e) {
+				if($("#target").val() != null && $("#target").val() != "")
+				$("#mnu_target").val($("#target").val());
+				//alert($("#target").val());
+				
+			});
+			
+			
+			$('.select-one').multiselect({
+				enableFiltering: true,
+				filterPlaceholder: 'Rechercher un élément...',
+				enableCaseInsensitiveFiltering: true,
+				maxHeight: 300,
+				buttonWidth: '450px',
+				numberDisplayed: 5,
+				buttonText: function(options, select) {
+					if (options.length === 0) {
+						return 'Aucun élément selectionnable';
+					}
+					else if (options.length > 5) {
+						return 'Plus de 5 éléments selectionnés !';
+					}
+					 else {
+						 var labels = [];
+						 options.each(function() {
+							 if ($(this).attr('label') !== undefined) {
+								 labels.push($(this).attr('label'));
+							 }
+							 else {
+								 labels.push($(this).html());
+							 }
+						 });
+						 return labels.join(', ') + '';
+					 }
+				},
+			
+			});
+		
+		});
+	</script>
+
+	
+
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    erico_backend.example:
+#        class: Erico\BackendBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,114 @@
+{% extends "AlexandrieFrontendBundle::layout.html.twig" %}
+
+	{% block style %}
+		.control-label.label-alex {
+			text-align: left;
+		}
+		@media (min-width: 768px){
+		
+			.form-horizontal .control-label {
+				text-align: left;
+			}
+		
+		}
+		
+
+	{% endblock  %}
+
+{% block sectionOne %}
+
+	<div class="section-one">
+        <div class="container">
+            <br/> <br/> <br/>
+            <div class="row">
+                <div class="col-lg-offset-2 col-md-4 col-md-offset-2">
+                    <form class="form-horizontal form-alexendrie" action="search.html" style="min-height:450px;">
+                        <h3 class="text-center formtitle-alex">Inscription</h3>
+                        <div>
+                            <div class="col-md-12">
+                               <br/>
+                              
+								<div class="form-group">
+									<div class="col-lg-12 col-md-12 col-sm-3 col-xs-4 label-column"><label class="control-label label-alex" for="dropdown-input-field">Nom d'utilisateur :&nbsp;</label></div>
+									<div class="col-lg-12 col-md-12 col-sm-9 col-xs-8 input-column"><input class="form-control" type="text"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12 col-md-12 col-sm-3 col-xs-4 label-column"><label class="control-label label-alex" for="dropdown-input-field">Email :&nbsp;</label></div>
+									<div class="col-lg-12 col-md-12 col-sm-9 col-xs-8 input-column"><input class="form-control" type="text"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12 col-md-12 col-sm-3 col-xs-4 label-column"><label class="control-label label-alex" for="dropdown-input-field">Mot de passe :&nbsp;</label></div>
+									<div class="col-lg-12 col-md-12 col-sm-9 col-xs-8 input-column"><input class="form-control" type="text"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12 col-md-12 col-sm-3 col-xs-4 label-column"><label class="control-label label-alex" for="dropdown-input-field">Confirmation mot de passe :&nbsp;</label></div>
+									<div class="col-lg-12 col-md-12 col-sm-9 col-xs-8 input-column"><input class="form-control" type="text"></div>
+								</div>
+								
+                                
+                            </div>
+                        </div>
+                        <div class="bloc-button">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 label-column"><button class="btn btn-danger active btn-alex" type="reset">Effacer</button></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 label-column"><button class="btn btn-success btn-alex" type="submit">Inscription</button></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="row register-form" >
+                        <div class="col-md-8 col-md-offset-0">
+						
+							
+							
+                            <form class="form-horizontal form-alexendrie" style="min-height:450px;" action="{{ path('login_check') }}" method="post">
+                                <h3 class="text-center formtitle-alex">Connexion</h3>
+                                <div>
+                                    <div class="col-md-12">
+                                        <br/><br/>
+                                        <!-- <legend style="text-align:center"> <h3> J'ai déjà un compte </h3> </legend> -->
+										{# S'il y a une erreur, on l'affiche dans un joli cadre #}
+										
+										{% if error %}
+											<div class="alert alert-error" style="color:red">{{ error.message|replace({"Bad credentials." : "Adresse mail ou mot de passe incorrect. Ressayez SVP ", "User account is disabled." : "Votre compte est désactivé"}) }}</div> 
+											{### <div class="alert alert-error" > Mot de passe ou email incorrect </div>###}
+											
+											{% if error.message == "User account is disabled." %}
+											 <!-- <div class="form-group"><input id="active_account" type="button" class="btn btn-success" value="Activez votre compte" /><br/></div> -->
+											{% endif %}
+										  
+										{% endif %}
+										  
+										  
+										  
+										{# Le formulaire, avec URL de soumission vers la route «login_check » comme on l'a vu #}
+										
+										<div class="form-group">
+											<div class="col-lg-12 col-md-12 col-sm-3 col-xs-4 label-column"><label class="control-label label-alex" for="username">Email :&nbsp;</label></div>
+											<div class="col-lg-12 col-md-12 col-sm-9 col-xs-8 input-column"><input name="_username" id="username" type="email" class="form-control" value="{{ last_username }}" placeholder="Email" required></div>
+										</div>
+										<div class="form-group">
+											<div class="col-lg-12 col-md-12 col-sm-3 col-xs-4 label-column"><label class="control-label label-alex" for="password">Mot de passe :&nbsp;</label></div>
+											<div class="col-lg-12 col-md-12 col-sm-9 col-xs-8 input-column"><input name="_password" id="password" type="password" class="form-control"  placeholder="Mot de passe" required></div>
+										</div>
+										<input type="checkbox" id="_remember_me" name="_remember_me" checked /> Se souvenir de moi <a href="" style="color:red" class="pull-right"> Mot de passe oublié ? </a>
+                                    </div>
+                                </div>
+                                <div class="bloc-button">
+                                    <div class="form-group">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 label-column"><button class="btn btn-danger active btn-alex" type="reset">Effacer</button></div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 label-column"><button class="btn btn-success btn-alex" type="submit">Connexion</button></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            
+        </div>
+    </div>
+	
+{% endblock  %}

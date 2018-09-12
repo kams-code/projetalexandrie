@@ -1,0 +1,355 @@
+<?php
+
+namespace Erico\ApiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Event\LifecycleEventArgs;
+
+/**
+ * Content
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Erico\ApiBundle\Entity\ContentRepository")
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discriminator", type="string")
+ * @ORM\DiscriminatorMap({"content"="Content", "paragraphe"="Erico\ApiBundle\Entity\Paragraphe", "texteloi"="Erico\ApiBundle\Entity\TexteLoi", "categorie"="Erico\ApiBundle\Entity\Categorie", "keyword"="Erico\ApiBundle\Entity\Keyword", "jurisprudence"="Erico\ApiBundle\Entity\Jurisprudence", "document"="Erico\ApiBundle\Entity\Document", "nature"="Erico\ApiBundle\Entity\Nature", "article"="Erico\ApiBundle\Entity\Article", "menu"="Erico\ApiBundle\Entity\Menu", "page"="Erico\ApiBundle\Entity\Page"})
+ */
+
+class Content
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="designation", type="string", length=255)
+     */
+    private $designation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_ajout", type="datetime")
+     */
+    private $dateAjout;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_modif", type="datetime")
+     */
+    private $dateModif;
+
+	/**
+     * @var boolean
+     *
+     * @ORM\Column(name="archiver", type="boolean")
+     */
+    private $archiver;
+	
+	
+	/**
+	* @ORM\ManyToOne(targetEntity="Erico\ApiBundle\Entity\User")
+	* @ORM\JoinColumn(nullable=true)
+	*/
+	private $user;
+	
+	
+	
+	/**
+     * Constructor
+     */
+    public function __construct()
+    {
+		$this->dateAjout = new \DateTime();
+		$this->dateModif = new \DateTime();
+		$this->archiver = false;
+    }
+	
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set designation
+     *
+     * @param string $designation
+     *
+     * @return Content
+     */
+    public function setDesignation($designation)
+    {
+        $this->designation = $designation;
+
+        return $this;
+    }
+
+    /**
+     * Get designation
+     *
+     * @return string
+     */
+    public function getDesignation()
+    {
+        return $this->designation;
+    }
+
+    /**
+     * Set dateAjout
+     *
+     * @param \DateTime $dateAjout
+     *
+     * @return Content
+     */
+    public function setDateAjout($dateAjout)
+    {
+        $this->dateAjout = $dateAjout;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAjout
+     *
+     * @return \DateTime
+     */
+    public function getDateAjout()
+    {
+        return $this->dateAjout;
+    }
+
+    /**
+     * Set dateModif
+     *
+     * @param \DateTime $dateModif
+     *
+     * @return Content
+     */
+    public function setDateModif($dateModif)
+    {
+        $this->dateModif = $dateModif;
+
+        return $this;
+    }
+
+    /**
+     * Get dateModif
+     *
+     * @return \DateTime
+     */
+    public function getDateModif()
+    {
+        return $this->dateModif;
+    }
+
+    /**
+     * Set archiver
+     *
+     * @param boolean $archiver
+     *
+     * @return Content
+     */
+    public function setArchiver($archiver)
+    {
+        $this->archiver = $archiver;
+
+        return $this;
+    }
+
+    /**
+     * Get archiver
+     *
+     * @return boolean
+     */
+    public function getArchiver()
+    {
+        return $this->archiver;
+    }
+	
+	public function monthDateAjout()
+    {
+        
+		if($this->dateAjout!=null)
+		{
+			
+			switch (date_format($this->dateAjout,"n")) // on indique sur quelle variable on travaille
+			{ 
+			
+				case 1: 
+					return "Janvier";
+				break;
+				
+				case 2: 
+					return "Février";
+				break;
+				
+				case 3: 
+					return "Mars";
+				break;
+				
+				case 4: 
+					return "Avril";
+				break;
+				
+				case 5: 
+					return "Mai";
+				break;
+				
+				case 6:
+					return "Juin";
+				break;
+				
+				case 7:
+					return "Juillet";
+				break;
+				
+				case 8: 
+					return "Août";
+				break;
+				
+				case 9: 
+					return "Septembre";
+				break;
+				
+				case 10: 
+					return "Otocbre";
+				break;
+				
+				case 11:
+					return "Novembre";
+				break;
+				
+				case 12:
+					return "Décembre";
+				break;
+				
+			}
+			
+		}
+		else
+		{
+			
+			return "";
+			
+		}
+		
+    }
+	
+	
+	public function monthDateModif()
+    {
+        
+		if($this->dateModif!=null)
+		{
+			
+			switch (date_format($this->dateModif,"n")) // on indique sur quelle variable on travaille
+			{ 
+			
+				case 1: 
+					return "Janvier";
+				break;
+				
+				case 2: 
+					return "Février";
+				break;
+				
+				case 3: 
+					return "Mars";
+				break;
+				
+				case 4: 
+					return "Avril";
+				break;
+				
+				case 5: 
+					return "Mai";
+				break;
+				
+				case 6:
+					return "Juin";
+				break;
+				
+				case 7:
+					return "Juillet";
+				break;
+				
+				case 8: 
+					return "Août";
+				break;
+				
+				case 9: 
+					return "Septembre";
+				break;
+				
+				case 10: 
+					return "Otocbre";
+				break;
+				
+				case 11:
+					return "Novembre";
+				break;
+				
+				case 12:
+					return "Décembre";
+				break;
+				
+			}
+			
+		}
+		else
+		{
+			
+			return "";
+			
+		}
+		
+    }
+	
+	public function TitreRewrite()
+    {
+        
+		$accent = array('à', 'á', 'â', 'ã', 'ä', 'å', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'ç', 'Ç', 'é', 'è', 'ê', 'ë', 'È', 'É', 'Ê', 'Ë', 'ì', 'í', 'î', 'ï', 'Ì', 'Í', 'Î', 'Ï', 'ò', 'ó', 'ô', 'õ', 'ö', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'ù', 'ú', 'û', 'ü', 'Ú', 'Ù', 'Û', 'Ü', 'Ý', 'ý', 'ÿ', 'ñ', '&#039;');
+   $sans_accent = array('a', 'a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A', 'A', 'A', 'c', 'C', 'e', 'e', 'e', 'e', 'E', 'E', 'E', 'E', 'i', 'i', 'i', 'i', 'I', 'I', 'I', 'I', 'o', 'o', 'o', 'o', 'o', 'O', 'O', 'O', 'O', 'O', 'u', 'u', 'u', 'u', 'U', 'U', 'U', 'U', 'y', 'y', 'y', 'n', '-');      
+		
+		$url_contenu = $this->designation;
+		$url_contenu = str_replace($accent, $sans_accent, $url_contenu);
+		$url_contenu = strtolower($url_contenu);
+		
+		$url = array();
+	 
+		for ($i = 0; $i < strlen($url_contenu); $i++) 
+		array_push($url, $url_contenu[$i]);
+		
+		$url_aff = '';
+		
+		foreach($url as $url_contenu)
+		{
+			if(preg_match('#^[a-zA-Z0-9]$#', $url_contenu) != true)
+			$url_contenu = str_replace($url_contenu, '-', $url_contenu);
+			
+			$url_aff .= $url_contenu;
+		}
+		
+		return  $url_aff;
+		
+    }
+	
+	
+
+    
+	
+}

@@ -1,0 +1,19 @@
+alexandrie_frontend_homepage:
+    path:     /
+    defaults: { _controller: AlexandrieFrontendBundle:Default:index }
+
+alexandrie_frontend_keywordpage:
+    path:     /json/keyword
+    defaults: { _controller: AlexandrieFrontendBundle:Default:keyword }
+
+alexandrie_frontend_searchresultpage:
+    path:     /searchresult
+    defaults: { _controller: AlexandrieFrontendBundle:Search:searchresult }
+
+alexandrie_frontend_singlepage:
+    path:     /publication
+    defaults: { _controller: AlexandrieFrontendBundle:Default:single }
+
+alexandrie_frontend_textepage:
+    path:     /subscription/texte/{id}-{titre}
+    defaults: { _controller: AlexandrieFrontendBundle:Subcription:Texte }

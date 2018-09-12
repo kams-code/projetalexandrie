@@ -1,0 +1,64 @@
+{% extends "EricoBackendBundle::layout.html.twig" %}
+
+
+{% block style %} 
+
+<style>
+	html, body {
+		height:100%;
+	}
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+	
+	<!-- <div class=" row">
+		<div class="col-md-3 col-sm-3 col-xs-6">
+			<a data-toggle="tooltip" title="6 non publiés." class="well top-block" href="#">
+				<i class="glyphicon glyphicon-text-width"></i>
+
+				<div>Produits</div>
+				<div>507</div>
+				<span class="notification">6</span>
+			</a>
+		</div>
+
+		<div class="col-md-3 col-sm-3 col-xs-6">
+			<a data-toggle="tooltip" title="4 non publiés." class="well top-block" href="#">
+				<i class="glyphicon glyphicon-bookmark"></i>
+
+				<div>Pages</div>
+				<div>228</div>
+				<span class="notification green">4</span>
+			</a>
+		</div>
+
+		<div class="col-md-3 col-sm-3 col-xs-6">
+			<a data-toggle="tooltip" title="34 non publiés." class="well top-block" href="#">
+				<i class="glyphicon glyphicon-book"></i>
+
+				<div>Utilisateur</div>
+				<div>13320</div>
+				<span class="notification yellow">34</span>
+			</a>
+		</div>
+
+		<div class="col-md-3 col-sm-3 col-xs-6">
+			<a data-toggle="tooltip" title="12 non publiés." class="well top-block" href="#">
+				<i class="glyphicon glyphicon-envelope red"></i>
+
+				<div>Messages</div>
+				<div>25</div>
+				<span class="notification red">12</span>
+			</a>
+		</div>
+	</div> -->
+	
+	<div>
+	{{setting.piwik|raw}}
+	</div>
+	
+	
+{% endblock %}

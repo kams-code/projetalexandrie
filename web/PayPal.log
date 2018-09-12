@@ -1,0 +1,209 @@
+[03-04-2018 11:00:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:00:39] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:00:41] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:00:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:00:44] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 11:00:47] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:00:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:01:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:01:09] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:01:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:01:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 11:01:15] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:01:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:02:17] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:02:17] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:02:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:02:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 11:02:21] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:02:27] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:31:33] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:31:33] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:31:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:31:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 11:31:35] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:31:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:32:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:32:23] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:32:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:32:25] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 11:32:25] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:32:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:32:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-04-2018 11:32:55] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:32:56] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/oauth2/token HTTP/1.1, Host: api.sandbox.paypal.com, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Basic QVhrTFQwano1VVBONmlScmJuV2JqZmp0MDRFcGduSjBhTElTZk5VSUQ3cDlPdkowNFBxZXZsVVdINEVUbWF1RGFQLW9MejBkOUJxa1Fkd1o6RU90QUJyNGcwbFdDLVFrejRvdEt1NWo5aXIyUDlvcWliZFkzYVZwNHhFMDZIZEdsZUNKazNLdGl4TkJDSkxKeUNJZlp3TF9BVFpwQUFWU3M=, Accept: */*, Content-Length: 29, Content-Type: application/x-www-form-urlencoded, , 
+[03-04-2018 11:32:56] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: grant_type=client_credentials
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:32:56] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[03-04-2018 11:32:56] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:32:59 GMT, Server: Apache, paypal-debug-id: 447b8d6bb4a88, X-PAYPAL-TOKEN-SERVICE: IAAS, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 447b8d6bb4a88, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 77, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:32:56] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[03-04-2018 11:32:56] PayPal\Core\PayPalHttpConnection : DEBUG: 
+
+================================================================================================================================
+
+[03-04-2018 11:32:59] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-04-2018 11:33:04] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:33:06] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/oauth2/token HTTP/1.1, Host: api.sandbox.paypal.com, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Basic QVhrTFQwano1VVBONmlScmJuV2JqZmp0MDRFcGduSjBhTElTZk5VSUQ3cDlPdkowNFBxZXZsVVdINEVUbWF1RGFQLW9MejBkOUJxa1Fkd1o6RU90QUJyNGcwbFdDLVFrejRvdEt1NWo5aXIyUDlvcWliZFkzYVZwNHhFMDZIZEdsZUNKazNLdGl4TkJDSkxKeUNJZlp3TF9BVFpwQUFWU3M=, Accept: */*, Content-Length: 29, Content-Type: application/x-www-form-urlencoded, , 
+[03-04-2018 11:33:06] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: grant_type=client_credentials
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:33:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[03-04-2018 11:33:06] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:33:09 GMT, Server: Apache, paypal-debug-id: f50f9a5268d29, X-PAYPAL-TOKEN-SERVICE: IAAS, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: f50f9a5268d29, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 77, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:33:06] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.sandbox.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[03-04-2018 11:33:06] PayPal\Core\PayPalHttpConnection : DEBUG: 
+
+================================================================================================================================
+
+[03-04-2018 11:35:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-04-2018 11:35:59] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:36:01] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/oauth2/token HTTP/1.1, Host: api.sandbox.paypal.com, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Basic QWNHRVJqMHpvaGVJeWFpN216UTNrczJfeWc5T2dkTGJNbDNOSTh4c2tVNDcxTjNoSWNIak9NVXhwd2FqUWNCYk9aR296QUwzUXFiTlN1NWk6RUJFdGY1N3NkRHpWVzVzdzVhalhaMlllbmxYQU9jN09Ea2tEOFlEaW82RTJQbzBTUENGNGtpRjRmRXlGUVlJUWVDRXJqaGp6akh1UDlwbDA=, Accept: */*, Content-Length: 29, Content-Type: application/x-www-form-urlencoded, , 
+[03-04-2018 11:36:01] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: grant_type=client_credentials
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:36:01] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:36:01] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:36:04 GMT, Server: Apache, paypal-debug-id: 2a651c9c1399c, X-PAYPAL-TOKEN-SERVICE: IAAS, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 2a651c9c1399c, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 710, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:36:01] PayPal\Core\PayPalHttpConnection : DEBUG: Response Data 	: {"scope":"https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/disputes/read-buyer https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/payments/payouts https://uri.paypal.com/services/disputes/update-seller https://api.paypal.com/v1/vault/credit-card/.*","nonce":"2018-04-03T08:36:04ZAtBKxGf5HGvTe5z4QRPsfuAV0Ld7c3QmoIRcAPhDrb0","access_token":"A21AAGYcmbKkyG6cqvVZ6JqtxD9j4DAIEM9NbKXO8GMxq5nfxfj3xt1p9_xlbbd4JgeSsSS8xn7ZjmIUAA_cB1-kxR4hh2yOg","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":32400}
+
+================================================================================================================================
+
+[03-04-2018 11:36:01] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-04-2018 11:36:01] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:36:03] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/payments/payment HTTP/1.1, Host: api.sandbox.paypal.com, Accept: */*, Content-Type: application/json, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Bearer A21AAGYcmbKkyG6cqvVZ6JqtxD9j4DAIEM9NbKXO8GMxq5nfxfj3xt1p9_xlbbd4JgeSsSS8xn7ZjmIUAA_cB1-kxR4hh2yOg, Content-Length: 474, , 
+[03-04-2018 11:36:03] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: {"transactions":[{"item_list":{"items":[{"name":"Abonnement Monthly","price":"2","currency":"EUR","quantity":1}]},"description":"Abonnement sur Legiafrica.com","amount":{"total":"2","currency":"EUR","details":{"subtotal":"2"}},"custom":"8977"}],"intent":"sale","redirect_urls":{"return_url":"http://localhost/legiafrica/symfony/web/app_dev.php/paypal/pay","cancel_url":"http://localhost/legiafrica/symfony/web/app_dev.php/paypal/cancel"},"payer":{"payment_method":"paypal"}}
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:36:03] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:36:03] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:36:06 GMT, Server: Apache, paypal-debug-id: 51b76b8a5dce, Content-Language: *, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 51b76b8a5dce, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 827, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:36:03] PayPal\Core\PayPalHttpConnection : DEBUG: Response Data 	: {"id":"PAY-9TS21931W4618420NLLBTZ5Q","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"2.00","currency":"EUR","details":{"subtotal":"2.00"}},"description":"Abonnement sur Legiafrica.com","custom":"8977","item_list":{"items":[{"name":"Abonnement Monthly","price":"2.00","currency":"EUR","quantity":1}]},"related_resources":[]}],"create_time":"2018-04-03T08:36:06Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-9TS21931W4618420NLLBTZ5Q","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-4YC812019R196481C","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-9TS21931W4618420NLLBTZ5Q/execute","rel":"execute","method":"POST"}]}
+
+================================================================================================================================
+
+[03-04-2018 11:38:26] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-04-2018 11:38:27] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:38:28] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/oauth2/token HTTP/1.1, Host: api.sandbox.paypal.com, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Basic QWNHRVJqMHpvaGVJeWFpN216UTNrczJfeWc5T2dkTGJNbDNOSTh4c2tVNDcxTjNoSWNIak9NVXhwd2FqUWNCYk9aR296QUwzUXFiTlN1NWk6RUJFdGY1N3NkRHpWVzVzdzVhalhaMlllbmxYQU9jN09Ea2tEOFlEaW82RTJQbzBTUENGNGtpRjRmRXlGUVlJUWVDRXJqaGp6akh1UDlwbDA=, Accept: */*, Content-Length: 29, Content-Type: application/x-www-form-urlencoded, , 
+[03-04-2018 11:38:28] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: grant_type=client_credentials
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:38:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:38:28] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:38:31 GMT, Server: Apache, paypal-debug-id: 103590758a084, X-PAYPAL-TOKEN-SERVICE: IAAS, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 103590758a084, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 710, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:38:28] PayPal\Core\PayPalHttpConnection : DEBUG: Response Data 	: {"scope":"https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/disputes/read-buyer https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/payments/payouts https://uri.paypal.com/services/disputes/update-seller https://api.paypal.com/v1/vault/credit-card/.*","nonce":"2018-04-03T08:36:04ZAtBKxGf5HGvTe5z4QRPsfuAV0Ld7c3QmoIRcAPhDrb0","access_token":"A21AAGYcmbKkyG6cqvVZ6JqtxD9j4DAIEM9NbKXO8GMxq5nfxfj3xt1p9_xlbbd4JgeSsSS8xn7ZjmIUAA_cB1-kxR4hh2yOg","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":32253}
+
+================================================================================================================================
+
+[03-04-2018 11:38:28] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[03-04-2018 11:38:29] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:38:30] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/payments/payment HTTP/1.1, Host: api.sandbox.paypal.com, Accept: */*, Content-Type: application/json, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Bearer A21AAGYcmbKkyG6cqvVZ6JqtxD9j4DAIEM9NbKXO8GMxq5nfxfj3xt1p9_xlbbd4JgeSsSS8xn7ZjmIUAA_cB1-kxR4hh2yOg, Content-Length: 474, , 
+[03-04-2018 11:38:30] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: {"transactions":[{"item_list":{"items":[{"name":"Abonnement Monthly","price":"2","currency":"EUR","quantity":1}]},"description":"Abonnement sur Legiafrica.com","amount":{"total":"2","currency":"EUR","details":{"subtotal":"2"}},"custom":"8977"}],"intent":"sale","redirect_urls":{"return_url":"http://localhost/legiafrica/symfony/web/app_dev.php/paypal/pay","cancel_url":"http://localhost/legiafrica/symfony/web/app_dev.php/paypal/cancel"},"payer":{"payment_method":"paypal"}}
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:38:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:38:30] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:38:33 GMT, Server: Apache, paypal-debug-id: 747f5b6f6420a, Content-Language: *, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 747f5b6f6420a, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 827, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:38:30] PayPal\Core\PayPalHttpConnection : DEBUG: Response Data 	: {"id":"PAY-6XV23700DG011602XLLBT3CI","intent":"sale","state":"created","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"total":"2.00","currency":"EUR","details":{"subtotal":"2.00"}},"description":"Abonnement sur Legiafrica.com","custom":"8977","item_list":{"items":[{"name":"Abonnement Monthly","price":"2.00","currency":"EUR","quantity":1}]},"related_resources":[]}],"create_time":"2018-04-03T08:38:33Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-8FM42339Y4147161G","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI/execute","rel":"execute","method":"POST"}]}
+
+================================================================================================================================
+
+[03-04-2018 11:38:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[03-04-2018 11:38:52] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:38:53] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/oauth2/token HTTP/1.1, Host: api.sandbox.paypal.com, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Basic QWNHRVJqMHpvaGVJeWFpN216UTNrczJfeWc5T2dkTGJNbDNOSTh4c2tVNDcxTjNoSWNIak9NVXhwd2FqUWNCYk9aR296QUwzUXFiTlN1NWk6RUJFdGY1N3NkRHpWVzVzdzVhalhaMlllbmxYQU9jN09Ea2tEOFlEaW82RTJQbzBTUENGNGtpRjRmRXlGUVlJUWVDRXJqaGp6akh1UDlwbDA=, Accept: */*, Content-Length: 29, Content-Type: application/x-www-form-urlencoded, , 
+[03-04-2018 11:38:53] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: grant_type=client_credentials
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:38:53] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:38:53] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:38:56 GMT, Server: Apache, paypal-debug-id: 19e05d9b70426, X-PAYPAL-TOKEN-SERVICE: IAAS, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 19e05d9b70426, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 710, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:38:53] PayPal\Core\PayPalHttpConnection : DEBUG: Response Data 	: {"scope":"https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/disputes/read-buyer https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/payments/payouts https://uri.paypal.com/services/disputes/update-seller https://api.paypal.com/v1/vault/credit-card/.*","nonce":"2018-04-03T08:36:04ZAtBKxGf5HGvTe5z4QRPsfuAV0Ld7c3QmoIRcAPhDrb0","access_token":"A21AAGYcmbKkyG6cqvVZ6JqtxD9j4DAIEM9NbKXO8GMxq5nfxfj3xt1p9_xlbbd4JgeSsSS8xn7ZjmIUAA_cB1-kxR4hh2yOg","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":32228}
+
+================================================================================================================================
+
+[03-04-2018 11:38:53] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI
+[03-04-2018 11:38:54] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:38:55] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: GET /v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI HTTP/1.1, Host: api.sandbox.paypal.com, Accept: */*, Content-Type: application/json, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Bearer A21AAGYcmbKkyG6cqvVZ6JqtxD9j4DAIEM9NbKXO8GMxq5nfxfj3xt1p9_xlbbd4JgeSsSS8xn7ZjmIUAA_cB1-kxR4hh2yOg, , 
+[03-04-2018 11:38:55] PayPal\Core\PayPalHttpConnection : DEBUG: No Request Payload
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:38:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:38:55] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:38:58 GMT, Server: Apache, paypal-debug-id: 94e29d7a40cd0, Content-Language: *, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 94e29d7a40cd0, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 1691, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:38:55] PayPal\Core\PayPalHttpConnection : DEBUG: Response Data 	: {"id":"PAY-6XV23700DG011602XLLBT3CI","intent":"sale","state":"created","cart":"8FM42339Y4147161G","payer":{"payment_method":"paypal","status":"VERIFIED","payer_info":{"email":"contact-buyer@legiafrica.com","first_name":"test","last_name":"buyer","payer_id":"XQVA3PB4U4JXC","shipping_address":{"recipient_name":"test buyer","line1":"Av. de la Pelouse, 87648672 Mayet","city":"Paris","state":"Alsace","postal_code":"75002","country_code":"FR"},"country_code":"FR"}},"transactions":[{"amount":{"total":"2.00","currency":"EUR","details":{"subtotal":"2.00"}},"payee":{"merchant_id":"RSZ6RX6J7T7WJ","email":"contact-facilitator@legiafrica.com"},"description":"Abonnement sur Legiafrica.com","custom":"8977","item_list":{"items":[{"name":"Abonnement Monthly","price":"2.00","currency":"EUR","quantity":1}],"shipping_address":{"recipient_name":"test buyer","line1":"Av. de la Pelouse, 87648672 Mayet","city":"Paris","state":"Alsace","postal_code":"75002","country_code":"FR"}},"related_resources":[]}],"redirect_urls":{"return_url":"http://localhost/legiafrica/symfony/web/app_dev.php/paypal/pay?paymentId=PAY-6XV23700DG011602XLLBT3CI","cancel_url":"http://localhost/legiafrica/symfony/web/app_dev.php/paypal/cancel"},"create_time":"2018-04-03T08:38:33Z","update_time":"2018-04-03T08:38:58Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI/execute","rel":"execute","method":"POST"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-8FM42339Y4147161G","rel":"approval_url","method":"REDIRECT"}]}
+
+================================================================================================================================
+
+[03-04-2018 11:38:55] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI/execute
+[03-04-2018 11:38:56] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:39:00] PayPal\Core\PayPalHttpConnection : DEBUG: Request Headers 	: POST /v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI/execute HTTP/1.1, Host: api.sandbox.paypal.com, Accept: */*, Content-Type: application/json, User-Agent: PayPalSDK/PayPal-PHP-SDK 1.13.0 (platform-ver=5.6.25; bit=32; os=Windows_NT_6.2; machine=AMD64; crypto-lib-ver=1.0.1t; curl=7.50.1), Authorization: Bearer A21AAGYcmbKkyG6cqvVZ6JqtxD9j4DAIEM9NbKXO8GMxq5nfxfj3xt1p9_xlbbd4JgeSsSS8xn7ZjmIUAA_cB1-kxR4hh2yOg, Content-Length: 558, , 
+[03-04-2018 11:39:00] PayPal\Core\PayPalHttpConnection : DEBUG: Request Data		: {"payer_id":"XQVA3PB4U4JXC","transactions":[{"amount":{"total":"2.00","currency":"EUR","details":{"subtotal":"2.00"}},"payee":{"merchant_id":"RSZ6RX6J7T7WJ","email":"contact-facilitator@legiafrica.com"},"description":"Abonnement sur Legiafrica.com","custom":"8977","item_list":{"items":[{"name":"Abonnement Monthly","price":"2.00","currency":"EUR","quantity":1}],"shipping_address":{"recipient_name":"test buyer","line1":"Av. de la Pelouse, 87648672 Mayet","city":"Paris","state":"Alsace","postal_code":"75002","country_code":"FR"}},"related_resources":[]}]}
+--------------------------------------------------------------------------------------------------------------------------------
+
+[03-04-2018 11:39:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:39:00] PayPal\Core\PayPalHttpConnection : DEBUG: Response Headers	: Date: Tue, 03 Apr 2018 08:39:00 GMT, Server: Apache, paypal-debug-id: 67b6e985bb660, Content-Language: *, HTTP_X_PP_AZ_LOCATOR: sandbox.slc, Paypal-Debug-Id: 67b6e985bb660, Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT, Vary: Authorization, Content-Length: 1981, Connection: close, Content-Type: application/json, 
+[03-04-2018 11:39:00] PayPal\Core\PayPalHttpConnection : DEBUG: Response Data 	: {"id":"PAY-6XV23700DG011602XLLBT3CI","intent":"sale","state":"approved","cart":"8FM42339Y4147161G","payer":{"payment_method":"paypal","status":"VERIFIED","payer_info":{"email":"contact-buyer@legiafrica.com","first_name":"test","last_name":"buyer","payer_id":"XQVA3PB4U4JXC","shipping_address":{"recipient_name":"test buyer","line1":"Av. de la Pelouse, 87648672 Mayet","city":"Paris","state":"Alsace","postal_code":"75002","country_code":"FR"},"country_code":"FR"}},"transactions":[{"amount":{"total":"2.00","currency":"EUR","details":{"subtotal":"2.00"}},"payee":{"merchant_id":"RSZ6RX6J7T7WJ","email":"contact-facilitator@legiafrica.com"},"description":"Abonnement sur Legiafrica.com","custom":"8977","item_list":{"items":[{"name":"Abonnement Monthly","price":"2.00","currency":"EUR","quantity":1}],"shipping_address":{"recipient_name":"test buyer","line1":"Av. de la Pelouse, 87648672 Mayet","city":"Paris","state":"Alsace","postal_code":"75002","country_code":"FR"}},"related_resources":[{"sale":{"id":"2W199079PS094203A","state":"completed","amount":{"total":"2.00","currency":"EUR","details":{"subtotal":"2.00"}},"payment_mode":"INSTANT_TRANSFER","protection_eligibility":"ELIGIBLE","protection_eligibility_type":"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE","transaction_fee":{"value":"0.32","currency":"EUR"},"parent_payment":"PAY-6XV23700DG011602XLLBT3CI","create_time":"2018-04-03T08:39:02Z","update_time":"2018-04-03T08:39:02Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/sale/2W199079PS094203A","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/sale/2W199079PS094203A/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI","rel":"parent_payment","method":"GET"}]}}]}],"create_time":"2018-04-03T08:39:03Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6XV23700DG011602XLLBT3CI","rel":"self","method":"GET"}]}
+
+================================================================================================================================
+
+[03-04-2018 11:39:34] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:39:34] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:39:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[03-04-2018 11:39:36] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[03-04-2018 11:39:38] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:39:39] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:39:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[03-04-2018 11:39:42] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.paypal.com/v1/oauth2/token. {"error":"invalid_client","error_description":"Client Authentication failed"}
+[03-04-2018 11:40:21] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:40:22] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:40:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:40:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 11:40:23] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:40:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 11:40:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 11:40:59] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:41:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 11:41:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 11:41:00] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 11:41:02] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 13:30:44] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 13:30:46] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:30:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 13:30:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 13:30:50] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:30:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 13:36:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 13:36:08] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:36:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 13:36:12] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 13:36:13] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:36:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-04-2018 13:36:16] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Amount cannot be zero"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"64bdef3b6beb2"}
+[03-04-2018 13:36:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 13:36:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 13:36:50] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:36:51] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 13:36:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 13:36:52] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:36:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 13:37:29] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 13:37:31] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:37:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 13:37:35] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.paypal.com/v1/payments/payment/PAY-0KK675325W7284507LLBVSSI
+[03-04-2018 13:37:36] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:37:39] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 13:37:39] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment/PAY-0KK675325W7284507LLBVSSI/execute
+[03-04-2018 13:37:40] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:37:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[03-04-2018 13:37:43] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0KK675325W7284507LLBVSSI/execute. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].item_list.shipping_address","issue":"Specified country requires a postal code."}],"message":"Invalid request. See details.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"fe106d3d960c5"}
+[03-04-2018 13:38:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 13:38:59] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:39:03] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 13:39:03] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 13:39:09] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:39:18] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 13:39:45] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 13:39:47] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:39:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 13:39:49] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 13:39:50] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 13:39:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[03-04-2018 14:31:31] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[03-04-2018 14:31:32] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 14:31:33] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[03-04-2018 14:31:33] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/payment
+[03-04-2018 14:31:34] PayPal\Core\PayPalHttpConnection : INFO: Invalid or no certificate authority found - Retrying using bundled CA certs file
+[03-04-2018 14:31:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201

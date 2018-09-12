@@ -1,0 +1,56 @@
+.section-one {
+  border-top:5px #c12e2a solid;
+  padding-bottom:50px;
+  background:url(../../assets/img/novel-read-open-white-building-old-1.png) no-repeat center center;
+  margin-top:-55px;
+}
+
+@media (max-width: 768px) {
+  . {
+    min-height:670px;
+  }
+}
+
+.form-horizontal.form-alexendrie {
+  min-height:600px;
+  background-color:#f5f6f6;
+  border-radius:10px;
+}
+
+.formtitle-alex {
+  border-radius:10px 10px 0 0;
+}
+
+.form-control.input-lg {
+  width:100%;
+}
+
+.formtitle-alex {
+  background-color:#494949;
+  color:#ffffff;
+  padding:10px;
+}
+
+.control-label.label-alex {
+  width:100%;
+  text-align:right;
+  font-size:13px;
+}
+
+.btn-alex {
+  width:100%;
+}
+
+@media (max-width: 767px) {
+  .form-horizontal.form-alexendrie {
+    min-height:600px;
+  }
+}
+
+.form-horizontal.form-alexendrie .bloc-button {
+  position:absolute;
+  bottom:10px;
+  margin-left:20px;
+  min-width:250px;
+}
+

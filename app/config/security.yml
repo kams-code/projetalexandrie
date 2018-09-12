@@ -1,0 +1,93 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+
+#jms_security_extra:
+    #secure_all_services: false
+    #expressions: true
+
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        Erico\ApiBundle\Entity\User: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_USER]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        #pour utiliser plusieurs fournisseurs
+        all_provider:
+            chain:
+                providers: [in_memory, user_db]
+        in_memory:
+            memory: 
+                users:
+                    #user:  { password: userpass, roles: ['ROLE_USER' ] }
+                    #admin: { password: adminpasscud, roles: ['ROLE_ADMIN' ] }
+                    #cud: { password: adminpasscud, roles: ['ROLE_ADMIN' ] }
+                    #voir la valeur de '%super_admin%' dans le fichier de parametrage
+                    '%super_admin%': { password: admin, roles: ['ROLE_SUPER_ADMIN' ] }
+                    #chat:  { password: userpasschat, roles: ['ROLE_CHAT_AGENT' ] }
+        user_db:
+            entity: { class: Erico\ApiBundle\Entity\User, property: email }
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main_login:
+        # Cette expression régulière permet de prendre /login (mais pas /login_check !)
+            pattern:   ^/login
+            anonymous: true 
+
+
+        main:
+            # pattern:   ^/(admin|login_check|logout)
+            # se rassurer que les les routes login_check, et logout  sont dans ce par-feu de connection. ce qui est le cas ici car il commence par admin dans le routing.yml
+            #pattern:   ^/(admin|subscription)
+            pattern:   ^/			
+            anonymous: true 	
+            provider:  all_provider
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path:   logout
+                target: /
+            remember_me:
+                # On définit la clé pour le remember_me (%secret% est un parametre de parameters.yml)
+                key: '%secret%'
+                # 15min en secondes                
+                lifetime: 900 
+                # (valeur par défaut : REMEMBERME) Le nom du cookie utilisé pour garder l'utilisateur connecté. Si vous activez la fonctionnalité remember_me dans plusieurs pare-feu de la même application, assurez-vous de choisir un nom différent pour le cookie de chaque pare-feu. Sinon, vous devrez faire face à de nombreux problèmes liés à la sécurité.
+                name:  CUD_REMENBERME      
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            #   
+
+            # form_login: ~
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+            #definition des rôles
+
+    access_control:
+           #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY,requires_channel: https }
+           #- { path: ^/subscription, roles: ROLE_USER }
+           #en principe on definit celui  ci (admin) dans son controleur car on le fait ici tout les admin auront acces à l'espace user qui n'est accesible qu'au super user 
+           - { path: ^/admin/setting/app, roles: ROLE_SUPER_ADMIN }
+           - { path: ^/admin, roles: ROLE_ADMIN }
+           #- { path: ^/admin^, roles: ROLE_ADMIN }
+           #- { path: ^/admin/articles, roles: ROLE_ARTICLE_AGENT }
+           #- { path: ^/admin/actualite, roles: ROLE_ACTUALITE_AGENT }
+           #- { path: ^/admin/entreprises, roles: ROLE_INTERET_AGENT }
+           #- { path: ^/admin/categories, roles: ROLE_INTERET_AGENT }
+           #- { path: ^/admin/centresInterets, roles: ROLE_INTERET_AGENT }
+           #- { path: ^/admin/offres, roles: ROLE_OFFRES_AGENT }
+           #- { path: ^/admin/emplois, roles: ROLE_EMPLOIS_AGENT }
+           #- { path: ^/admin/setting, roles: ROLE_SETTING_AGENT }
+           #- { path: ^/admin/mediatheque, roles: ROLE_SUPER_ADMIN }
+           #- { path: ^/admin/user, roles: ROLE_SUPER_ADMIN }

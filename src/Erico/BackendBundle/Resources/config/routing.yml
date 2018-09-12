@@ -1,0 +1,252 @@
+erico_backend_homepage:
+    path:     /admin
+    defaults: { _controller: EricoBackendBundle:Default:index }
+
+erico_backend_menu_page:
+    path:     /admin/menu
+    defaults: { _controller: EricoBackendBundle:Menu:index }
+
+erico_backend_addmenu_page:
+    path:     /admin/menu/add
+    defaults: { _controller: EricoBackendBundle:Menu:add }
+
+erico_backend_updatemenu_page:
+    path:     /admin/menu/update/{id}
+    defaults: { _controller: EricoBackendBundle:Menu:update }
+
+erico_backend_menugetcible_page:
+    path:     /admin/menu/cible
+    defaults: { _controller: EricoBackendBundle:Menu:cible }
+
+
+erico_backend_texteloi_page:
+    path:     /admin/texteloi
+    defaults: { _controller: EricoBackendBundle:TexteLoi:index }
+
+erico_backend_addtexteloi_page:
+    path:     /admin/texteloi/add
+    defaults: { _controller: EricoBackendBundle:TexteLoi:add }
+
+erico_backend_updatetexteloi_page:
+    path:     /admin/texteloi/update/{id}
+    defaults: { _controller: EricoBackendBundle:TexteLoi:update }
+
+erico_backend_texte_page:
+    path:     /admin/publication/texte/{title_prev_link}/{id}
+    defaults: { _controller: EricoBackendBundle:Texte:index }
+
+erico_backend_addtexte_page:
+    path:     /admin/publication/texte/{title_prev_link}/{id}/add
+    defaults: { _controller: EricoBackendBundle:Texte:add }
+
+erico_backend_updatetexte_page:
+    path:     /admin/publication/texte/{title_prev_link}/{id}/update/{paragraphe}
+    defaults: { _controller: EricoBackendBundle:Texte:update }
+
+erico_backend_cat_page:
+    path:     /admin/categorie
+    defaults: { _controller: EricoBackendBundle:Categorie:index }
+
+erico_backend_addcat_page:
+    path:     /admin/categorie/add
+    defaults: { _controller: EricoBackendBundle:Categorie:add }
+
+erico_backend_updatecat_page:
+    path:     /admin/categorie/update/{id}
+    defaults: { _controller: EricoBackendBundle:Categorie:update }
+
+erico_backend_brothertexte_page:
+    path:     /admin/publication/paragraphe/brother
+    defaults: { _controller: EricoBackendBundle:Texte:brother }
+
+erico_backend_saveordertexte_page:
+    path:     /admin/publication/paragraphe/order/save
+    defaults: { _controller: EricoBackendBundle:Texte:saveOrder }
+
+erico_backend_keyword_page:
+    path:     /admin/keyword
+    defaults: { _controller: EricoBackendBundle:Keyword:index }
+
+erico_backend_addkeyword_page:
+    path:     /admin/keyword/add
+    defaults: { _controller: EricoBackendBundle:Keyword:add }
+
+erico_backend_updatekeyword_page:
+    path:     /admin/keyword/update/{id}
+    defaults: { _controller: EricoBackendBundle:Keyword:update }
+
+erico_backend_jurisprudence_page:
+    path:     /admin/jurisprudence
+    defaults: { _controller: EricoBackendBundle:Jurisprudence:index }
+
+erico_backend_addjurisprudence_page:
+    path:     /admin/jurisprudence/add
+    defaults: { _controller: EricoBackendBundle:Jurisprudence:add }
+
+erico_backend_updatejurisprudence_page:
+    path:     /admin/jurisprudence/update/{id}
+    defaults: { _controller: EricoBackendBundle:Jurisprudence:update }
+
+erico_backend_document_page:
+    path:     /admin/document
+    defaults: { _controller: EricoBackendBundle:Document:index }
+
+erico_backend_adddocument_page:
+    path:     /admin/document/add
+    defaults: { _controller: EricoBackendBundle:Document:add }
+
+erico_backend_updatedocument_page:
+    path:     /admin/document/update/{id}
+    defaults: { _controller: EricoBackendBundle:Document:update }
+
+erico_backend_archive_page:
+    path:     /admin/archive
+    defaults: { _controller: EricoBackendBundle:Default:archiver }
+
+erico_backend_addNature_page:
+    path:     /admin/nature/add
+    defaults: { _controller: EricoBackendBundle:Nature:add }
+
+erico_backend_article_page:
+    path:     /admin/article
+    defaults: { _controller: EricoBackendBundle:Article:index }
+
+erico_backend_addarticle_page:
+    path:     /admin/article/add
+    defaults: { _controller: EricoBackendBundle:Article:add }
+
+erico_backend_media_page:
+    path:     /admin/media
+    defaults: { _controller: EricoBackendBundle:Media:index }
+
+erico_backend_updatearticle_page:
+    path:     /admin/article/update/{id}
+    defaults: { _controller: EricoBackendBundle:Article:update }
+
+erico_backend_page_page:
+    path:     /admin/page
+    defaults: { _controller: EricoBackendBundle:Page:index }
+
+erico_backend_addpage_page:
+    path:     /admin/page/add
+    defaults: { _controller: EricoBackendBundle:Page:add }
+
+erico_backend_updatepage_page:
+    path:     /admin/page/update/{id}
+    defaults: { _controller: EricoBackendBundle:Page:update }
+
+erico_backend_user_page:
+    path:     /admin/user
+    defaults: { _controller: EricoBackendBundle:User:index }
+
+erico_backend_adduser_page:
+    path:     /admin/user/add
+    defaults: { _controller: EricoBackendBundle:User:add }
+
+erico_backend_updateuser_page:
+    path:     /admin/user/update/{id}
+    defaults: { _controller: EricoBackendBundle:User:update }
+
+erico_backend_deleteuser_page:
+    path:     /admin/user/delete
+    defaults: { _controller: EricoBackendBundle:User:delete }
+
+erico_backend_setting_page:
+    path:     /admin/setting
+    defaults: { _controller: EricoBackendBundle:Setting:all }
+
+erico_backend_register_page:
+    path:     /user/register
+    defaults: { _controller: EricoBackendBundle:User:register }
+
+erico_backend_registernewletter_page:
+    path:     /user/newletter/register
+    defaults: { _controller: EricoBackendBundle:User:newLetterRegister }
+
+erico_backend_comment_page:
+    path:     /admin/comment
+    defaults: { _controller: EricoBackendBundle:Comment:index }
+
+erico_backend_updatecomment_page:
+    path:     /admin/comment/update/{id}
+    defaults: { _controller: EricoBackendBundle:Comment:update }
+
+erico_backend_approvecomment_page:
+    path:     /admin/comment/approve
+    defaults: { _controller: EricoBackendBundle:Comment:approve }
+
+erico_backend_message_page:
+    path:     /admin/message
+    defaults: { _controller: EricoBackendBundle:Message:index }
+
+erico_backend_readmessage_page:
+    path:     /admin/message/read
+    defaults: { _controller: EricoBackendBundle:Message:read }
+
+erico_backend_showmessage_page:
+    path:     /admin/message/show
+    defaults: { _controller: EricoBackendBundle:Message:show }
+
+erico_backend_appsetting_page:
+    path:     /admin/setting/app
+    defaults: { _controller: EricoBackendBundle:Setting:app }
+
+erico_backend_produit_page:
+    path:     /admin/produit
+    defaults: { _controller: EricoBackendBundle:Produit:index }
+
+erico_backend_addproduit_page:
+    path:     /admin/produit/add
+    defaults: { _controller: EricoBackendBundle:Produit:add }
+
+erico_backend_updateproduit_page:
+    path:     /admin/produit/update/{id}
+    defaults: { _controller: EricoBackendBundle:Produit:update }
+
+erico_backend_addattribut_page:
+    path:     /admin/attribut/add
+    defaults: { _controller: EricoBackendBundle:Attribut:add }
+
+erico_backend_adddeclinaison_page:
+    path:     /admin/declinaison/add
+    defaults: { _controller: EricoBackendBundle:Declinaison:add }
+
+erico_backend_abonnement_page:
+    path:     /admin/abonnement
+    defaults: { _controller: EricoBackendBundle:Abonnement:index }
+
+erico_backend_addabonnement_page:
+    path:     /admin/abonnement/add
+    defaults: { _controller: EricoBackendBundle:Abonnement:add }
+
+erico_backend_updateabonnement_page:
+    path:     /admin/abonnement/update/{id}
+    defaults: { _controller: EricoBackendBundle:Abonnement:update }
+
+erico_backend_doctrine_page:
+    path:     /admin/doctrine
+    defaults: { _controller: EricoBackendBundle:Doctrine:index }
+
+erico_backend_adddoctrine_page:
+    path:     /admin/doctrine/add
+    defaults: { _controller: EricoBackendBundle:Doctrine:add }
+
+erico_backend_updatedoctrine_page:
+    path:     /admin/doctrine/update
+    defaults: { _controller: EricoBackendBundle:Doctrine:update }
+
+erico_backend_editdoctrine_page:
+    path:     /admin/doctrine/edit/{id}
+    defaults: { _controller: EricoBackendBundle:Doctrine:edit }    
+
+erico_backend_deletedoctrine_page:
+    path:     /admin/doctrine/delete/{id}
+    defaults: { _controller: EricoBackendBundle:Doctrine:delete }
+
+
+erico_backend_ajouttexte_page:
+    path:     /admin/publication/texte/{title_prev_link}/{id}
+    defaults: { _controller: EricoBackendBundle:Texte:ajoutTexte }
+   
+
+

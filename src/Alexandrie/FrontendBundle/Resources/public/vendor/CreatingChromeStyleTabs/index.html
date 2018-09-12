@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery Chrome Tabs Demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/chrome-tabs.css">
+        <link rel="stylesheet" href="css/chrome-tabs-dark-theme.css">
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    </head>
+    <body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/other/Creating-Chrome-style-Tabs-with-jQuery-jQuery-UI-Chrome-Tabs.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+    <h1 style="margin:150px auto 30px auto">jQuery Chrome Tabs Demo</h1>
+        <div class="chrome-tabs-shell">
+            <div class="chrome-tabs">
+                <div class="chrome-tab">
+                    <div class="chrome-tab-favicon" style="background-image: url('http://www.google.com/favicon.ico')"></div>
+                    <div class="chrome-tab-title">Google</div>
+                    <div class="chrome-tab-close"></div>
+                    <div class="chrome-tab-curves">
+                        <div class="chrome-tab-curves-left-shadow"></div>
+                        <div class="chrome-tab-curves-left-highlight"></div>
+                        <div class="chrome-tab-curves-left"></div>
+                        <div class="chrome-tab-curves-right-shadow"></div>
+                        <div class="chrome-tab-curves-right-highlight"></div>
+                        <div class="chrome-tab-curves-right"></div>
+                    </div>
+                </div>
+                <div class="chrome-tab chrome-tab-current">
+                    <div class="chrome-tab-favicon" style="background-image: url('http://www.facebook.com/favicon.ico')"></div>
+                    <div class="chrome-tab-title">Facebook</div>
+                    <div class="chrome-tab-close"></div>
+                    <div class="chrome-tab-curves">
+                        <div class="chrome-tab-curves-left-shadow"></div>
+                        <div class="chrome-tab-curves-left-highlight"></div>
+                        <div class="chrome-tab-curves-left"></div>
+                        <div class="chrome-tab-curves-right-shadow"></div>
+                        <div class="chrome-tab-curves-right-highlight"></div>
+                        <div class="chrome-tab-curves-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="chrome-shell-bottom-bar"></div>
+        </div>
+
+        <br>
+<br>
+
+        <p><button>Toggle dark theme</button></p>
+
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="js/chrome-tabs.js"></script>
+        <script>
+            var $chromeTabsExampleShell = $('.chrome-tabs-shell')
+            chromeTabs.init({
+                $shell: $chromeTabsExampleShell,
+                minWidth: 45,
+                maxWidth: 160
+            });
+            chromeTabs.addNewTab($chromeTabsExampleShell, {
+                favicon: 'http://www.jqueryscript.net/favicon.ico',
+                title: 'jQuery Script',
+                data: {
+                    timeAdded: +new Date()
+                }
+            });
+            $chromeTabsExampleShell.bind('chromeTabRender', function(){
+                var $currentTab = $chromeTabsExampleShell.find('.chrome-tab-current');
+                if ($currentTab.length && window['console'] && console.log) {
+                    console.log('Current tab index', $currentTab.index(), 'title', $.trim($currentTab.text()), 'data', $currentTab.data('tabData').data);
+                }
+            });
+
+            $('button').click(function(){
+                if ($chromeTabsExampleShell.hasClass('chrome-tabs-dark-theme')) {
+                    $chromeTabsExampleShell.removeClass('chrome-tabs-dark-theme');
+                } else {
+                    $chromeTabsExampleShell.addClass('chrome-tabs-dark-theme');
+                }
+            });
+        </script><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </body>
+</html>

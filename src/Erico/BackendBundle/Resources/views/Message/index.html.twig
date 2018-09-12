@@ -1,0 +1,237 @@
+{% extends "EricoBackendBundle::liste.html.twig" %}
+
+{% block page %}
+	<li>
+		Message
+	</li>
+	
+{% endblock %}
+	
+	
+{% block contentTablehead %}
+	<th class="col-xs-1" data-field="id" data-sortable="true">ID</th>
+	<th class="col-xs-2" data-field="nom" data-sortable="true">Nom</th>
+	<th class="col-xs-2" data-field="email" data-sortable="true">Email</th>
+	<th class="col-xs-3" data-field="sujet" data-sortable="true">Sujet</th>
+	<!-- <th class="col-xs-3" data-field="message" data-sortable="true">Message</th> -->
+	<th class="col-xs-1" data-field="lecture" data-sortable="true">Lecture</th>
+	<th class="col-xs-1" data-field="action" > </th>
+{% endblock %}
+
+{% block contentTableBody %}
+
+{% for item in messages %}
+	<tr>
+		<td>{{ item.id }}</td>
+		<td>{{ item.name }}</td>
+		<td>{{ item.email }}</td>
+		<td>{{ item.designation }}</td>
+		
+		{##
+		<!-- <td>
+		{{ item.description}}
+		</td> -->
+		##}
+		
+		
+		<td>
+		{%  if item.lecture == 1 %}
+		<input data-no-uniform="true"  checked type="checkbox" class="iphone-toggle" disabled="">
+		{%  else %}
+		<input data-no-uniform="true" type="checkbox" class="iphone-toggle" disabled="">
+		{%  endif  %}
+		</td>
+		
+		<td class="center">
+			<div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Actions
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+					<li>
+						{%  if item.lecture == false %}
+						<a  href="#" class="read" href="#" data-id="{{item.id}}" data-designation="{{item.designation|capitalize}}" data-read="1">
+							<i class="fa fa-envelope-open-o" ></i>
+							Marquer comme lu
+						</a>
+						{%  else %}
+						<a  href="#" class="read" href="#" data-id="{{item.id}}" data-designation="{{item.designation|capitalize}}" data-read="0">
+							<i class="fa fa-envelope" ></i>
+							Marquer comme non lu
+						</a>
+						{%  endif  %}
+						
+					</li>
+					<li class="divider"></li>
+					
+                    <li>
+						<a href="#" class="show"  data-id="{{item.id}}" data-designation="{{item.designation|capitalize}}">
+							<i class="fa fa-eye" ></i>
+							Afficher
+						</a>
+					</li>
+					<li class="divider"></li>
+					
+					<!-- <li>
+						<a class="" href="#">
+							<i class="fa fa-share" ></i>
+							Reponse
+						</a>
+					</li>
+					<li class="divider"></li> -->
+					
+					<li>
+						<a class="delete-content" href="#" data-designation="{{item.designation|capitalize}}" data-id="{{item.id}}">
+						<i class="glyphicon glyphicon-trash icon-white"></i>
+						Supprimer
+					</a>
+					</li>
+                </ul>
+            </div>
+			
+			
+			
+		</td>
+	</tr>
+{% endfor %}
+
+{% endblock %}
+
+{% block footer %}
+<!-- popup  -->
+<div class="modal" id="modal-message">
+	  <div class="modal-dialog modal-md" style="">
+		<div class="modal-content" >
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">x</button>
+			<h4 class="modal-title" id="modal-title">
+			
+				Message
+			
+			</h4>
+		  </div>
+		  <div class="modal-body">
+			
+			
+		  </div>
+		  <div class="modal-footer">
+			<button class="btn btn-info" data-dismiss="modal">Fermer</button>
+		  </div>
+		</div>
+	  </div>
+</div>
+{% endblock  %}
+	
+
+{% block javascripts %}  
+
+{{ parent() }}
+<!------------------------------------------- script delete user ------------------------------------------------->
+<script>
+$( document ).ready( function() {
+	
+	//on applique l'évènement sur tout le body car il y a reconstruction du DOM par le plugin bootstrap-table
+	$('body').on('click', '.show', function (event) {
+		
+		event.preventDefault();
+		
+		var message =  $(this);
+		$('#modal-title').html($(this).data('designation'));
+		//retour à la page précédente
+		$('#modal-message').modal('show');
+		$('.modal-body').html('<span id="loading"><i class="fa fa-spinner fa-spin fa-2x fa-fw"></i></span>Chargement du message...');
+		$.ajax({
+				url: '{{ path('erico_backend_showmessage_page')}}?idmsg=' + message.data('id'),
+				type: 'GET',
+				dataType: 'text', // selon le retour attendu
+				timeout: 60000, //une minute pour executer sinon error
+				success: function (response) {
+					
+					$('.modal-body').html(response);
+					
+				},
+				error: function(){
+					//alert('la requete n a pas abouti');
+					$('#modal-message').modal('hide');
+					swal("ERREUR!", 'la requete n a pas abouti', "error");
+				}
+		});				
+		
+	});
+			
+	//on applique l'évènement sur tout le body car il y a reconstruction du DOM par le plugin bootstrap-table
+	$('body').on('click', '.read', function (event) {
+		
+		var message =  $(this);
+		if(message.data('read')=="1")
+		{
+			var title = 'Confirmition de lecture';
+		}
+		else
+		{
+			var title = 'Confirmition de non lecture';
+			
+		}
+					
+		//alert('');
+		swal({
+		  title: title,
+		  text: 'Message : ' + message.data('designation'),
+		  type: "warning",
+		  showCancelButton: true,
+		  cancelButtonText: "Annuler",
+		  confirmButtonColor: "#DD6B55",
+		  confirmButtonText: "Continuer",
+		  closeOnConfirm: false,
+		  showLoaderOnConfirm: true,
+		},
+		function(){
+		  
+			// on ferme l'alerte
+			//swal.close();
+			//swal.disableButtons();
+			//myTable.row( this ).delete();
+			//supp
+			
+			
+			$.ajax({
+				url: '{{ path('erico_backend_readmessage_page')}}?idmsg=' + message.data('id') + '&read=' + message.data('read'),
+				type: 'GET',
+				dataType: 'text', // selon le retour attendu
+				timeout: 60000, //une minute pour executer sinon error
+				success: function (response) {
+					
+					if(response=="ok")
+					{
+						document.location.reload(true);
+					}
+					else
+					{
+						swal.enableButtons();
+						swal("Echec de l'opération", response, "error");
+						
+					}
+					
+					
+					
+				},
+				error: function(){
+					//alert('la requete n a pas abouti');
+					swal.enableButtons();
+					swal("ERREUR!", 'la requete n a pas abouti', "error")
+				}
+			});
+			
+		  
+		});
+
+		
+		
+	
+	});
+	
+} );
+</script>
+	
+{% endblock %}

@@ -1,0 +1,214 @@
+{%extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Titre de doctrine {% endblock %}
+
+{% block contentForm %}
+
+	{#{{ form_widget(form) }}#}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form) }}
+	
+	<div class="row">
+		<div class="col-md-8">
+		
+			<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.titreDocument, "Titre")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.titreDocument) }}
+				  {{ form_widget(form.titreDocument, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+			<br/>
+			
+			<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.nomAuteur, "nom de l'auteur")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.nomAuteur) }}
+				  {{ form_widget(form.nomAuteur, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+			
+      	<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.titreAuteur, "titre de l'auteur")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.titreAuteur) }}
+				  {{ form_widget(form.titreAuteur, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+
+      		<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.specialite, "nom de l'auteur")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.specialite) }}
+				  {{ form_widget(form.specialite, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+      
+      	<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.bp, "boite postale")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.bp) }}
+				  {{ form_widget(form.bp, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+      
+      	<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.tel, "numero de l'auteur")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.tel) }}
+				  {{ form_widget(form.tel, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+
+      	<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.email, "email de l'auteur")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.email) }}
+				  {{ form_widget(form.email, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+
+      		<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.nomAuteur, "nom de l'auteur")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.nomAuteur) }}
+				  {{ form_widget(form.nomAuteur, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+
+      	<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.datePublication, "date de publication")}} : 
+				  </div>
+				  
+				  <div class="col-md-4">
+				  {{ form_errors(form.datePublication) }}
+				  {{ form_widget(form.datePublication, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+
+      	<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.lieuDePublication, "lieu de publication")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.lieuDePublication) }}
+				  {{ form_widget(form.lieuDePublication, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+
+      		<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form.motCle, "mot cle")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form.motCle) }}
+				  {{ form_widget(form.motCle, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+      </br>
+
+		</div>
+		
+	</div>
+	<br/>
+	
+	{{ form_rest(form) }}
+		
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

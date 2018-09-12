@@ -1,0 +1,195 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#" class="prev">Page</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Page {% endblock %}
+
+{% block contentForm %}
+
+	{# {{ form_widget(form_page) }} #}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	
+	{{ form_errors(form_page) }}
+	<div class="row">
+	<div class="col-md-6">
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_page.designation, "Titre")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_page.designation) }}
+			  {{ form_widget(form_page.designation, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+				
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_page.keywords, "Mot clé (s)")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_page.keywords) }}
+			  {{ form_widget(form_page.keywords, {'attr':{'class':'form-control  selectkey'}}) }}
+			  
+			  </div>
+			  
+			</div>
+		</div>
+		<a href="#" class="addkeylink"><i class="glyphicon glyphicon-plus"></i>  ajouter un nouveau mot clé... </a>
+		
+		<br/><br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_page.parent, "Page parente")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_page.parent) }}
+			  {{ form_widget(form_page.parent, {'attr':{'class':'form-control  select-one'}}) }}
+			  
+			  </div>
+			  
+			</div>
+		</div>
+		<br/><br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_page.datePublish, "Publié le ")}} : 
+			  </div>
+			  
+			  <div class="col-md-4">
+			  {{ form_errors(form_page.datePublish) }}
+			  {{ form_widget(form_page.datePublish, {'attr':{'class':''}}) }}
+			  </div>
+			  
+			  <div class="col-md-3">
+			  {{ form_errors(form_page.publier) }}
+			  {{ form_widget(form_page.publier, {'attr':{'class':'form-control iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+	</div>	
+	
+	<div class="col-md-6">
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_page.description, "Texte")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_page.description) }}
+			  {{ form_widget(form_page.description, {'attr':{'class':'form-control texteditor'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		
+	</div>	
+	
+	</div>	
+	
+	{{ form_rest(form_page) }}
+	
+	<!-- popup elfinder  -->
+	<div class="modal" id="mediatheque">
+		  <div class="modal-dialog modal-lg" style="width:75%; margin:auto; margin-top:50px;">
+			<div class="modal-content" style="background:black">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">x</button>
+				<h4 class="modal-title">Médiathèque</h4>
+			  </div>
+			  <div class="modal-body">
+				<div id="elfinder"></div><br/><br/><br/>
+			  </div>
+			</div>
+		  </div>
+	</div>
+	
+{% endblock %}
+
+{% block scriptsElFinder %}
+
+	<script type="text/javascript" charset="utf-8">
+    
+		$().ready(function() {
+		
+			//chargement de l'image
+			if ($('.imageIntro').val() != "")
+			{
+				$('.img-article').attr('src', $('.imageIntro').val());
+			}
+			
+		
+			$('.buttonImg').on('click', function (event) {
+		
+				//retour à la page précédente
+				$('#mediatheque').modal('show');
+			
+			});
+			
+		   var elf = $('#elfinder').elfinder({
+		   
+				height:'400',	
+				url : '{{ asset('bundles/ericobackend/bower_components/elFinder-2.0.7/php/connector.minimal.php') }}',  // connector URL (REQUIRED)
+				lang: 'fr',				
+				resizable:false,
+				rememberLastDir :true,
+				onlyMimes: ["image"], // display all images
+				validName: true,
+				getFileCallback : function(file) {
+					
+					//fileUrl =   file.url.substring(8); //on elnlève le debut de la chaine /upload/ (8 caractères)
+					
+					/*if( addimg($('.inputimgselect'), fileUrl) )
+					{
+						$('.modal').modal('hide');
+						
+					}*/
+					
+					$('.imageIntro').val(file.url);
+					
+					$('.img-article').attr('src', file.url);
+					
+					$('#mediatheque').modal('hide');
+					
+				},
+			}).elfinder('instance');   
+			
+		});
+		
+	</script>
+
+{% endblock %}

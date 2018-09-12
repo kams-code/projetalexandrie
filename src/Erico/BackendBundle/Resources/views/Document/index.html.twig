@@ -1,0 +1,83 @@
+{% extends "EricoBackendBundle::liste.html.twig" %}
+
+{% block page %}
+	<li>
+		Documents
+	</li>
+	
+{% endblock %}
+	
+	
+{% block contentTablehead %}
+	<th class="col-xs-1" data-field="id" data-sortable="true">ID</th>
+	<th class="col-xs-2" data-field="titre" data-sortable="true">Titre</th>
+	<th class="col-xs-2" data-field="categorie" data-sortable="true">Catégorie</th>
+	<th class="col-xs-2" data-field="keyword" data-sortable="true">Mot clé</th>
+	<th class="col-xs-1" data-field="view" data-sortable="true">Vue</th>
+	<th class="col-xs-1" data-field="publish" data-sortable="true">Publié</th>
+	<th class="col-xs-1" data-field="action" ></th>
+{% endblock %}
+
+{% block contentTableBody %}
+
+{% for item in documents %}
+	<tr>
+		<td>{{ item.id }}</td>
+		<td>{{ item.designation }}</td>
+		<td>
+			{% for cat in item.categories %}
+				<a href="#" title="{{cat.chemin}}">{{cat.designation}}</a>,
+			{% endfor %}
+		</td>
+		<td>
+		
+			{% for key in item.keywords %}
+				{{key.designation}}, 
+			{% endfor %}
+		
+		</td>
+		<td> {{ item.nbrVue }} </td>
+		<td>
+		
+		{%  if item.publier == 1 %}
+		<input data-no-uniform="true"  checked type="checkbox" class="iphone-toggle" disabled="">Le {{ item.datePublish|date("d M Y H:i") }}
+		{%  else %}
+		<input data-no-uniform="true" type="checkbox" class="iphone-toggle" disabled="">
+		{%  endif  %}
+		</td>
+		<td class="center">
+		
+			<div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Actions
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+						<a class="" href="{{ path('erico_backend_texte_page', {'id': item.id, 'title_prev_link': 'texte-de-loi'})}}">
+							<i class="glyphicon glyphicon-zoom-in icon-white"></i>
+							Afficher
+						</a>
+					</li>
+                    <li class="divider"></li>
+                    <li>
+						<a class="" href="{{ path('erico_backend_updatedocument_page', {'id': item.id})}}">
+							<i class="glyphicon glyphicon-edit icon-white"></i>
+							Modifier
+						</a>
+					</li>
+					 <li class="divider"></li>
+					<li>
+						<a class="delete-content" href="#" data-designation="{{item.designation|capitalize}}" data-id="{{item.id}}">
+						<i class="glyphicon glyphicon-trash icon-white"></i>
+						Supprimer
+					</a>
+					</li>
+                </ul>
+            </div>
+				
+		</td>
+	</tr>
+{% endfor %}
+
+{% endblock %}

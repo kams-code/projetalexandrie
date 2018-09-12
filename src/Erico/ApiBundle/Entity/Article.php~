@@ -1,0 +1,25 @@
+<?php
+
+namespace Erico\ApiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Article
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Erico\ApiBundle\Entity\ArticleRepository")
+ */
+class Article extends Publication
+{
+   
+  
+	/**
+	* @ORM\ManyToOne(targetEntity="Erico\ApiBundle\Entity\Categorie")
+	* @ORM\JoinColumn(nullable=true)
+	*/
+	private $categorie;
+  
+  
+}
+

@@ -1,0 +1,45 @@
+{% extends "EricoBackendBundle::layout.html.twig" %}
+
+
+{% block page %}
+	<li>
+		Médiathèque
+	</li>
+	
+{% endblock %}
+
+	
+{% block content %}
+
+
+	<div id="elfinder"></div><br/>
+
+	
+
+{% endblock %}
+
+
+
+{% block scriptsElFinder %}
+
+	<script type="text/javascript" charset="utf-8">
+		$().ready(function() {
+			var elf = $('#elfinder').elfinder({
+				height:'600',	
+				url : '{{ asset('bundles/ericobackend/bower_components/elFinder-2.0.7/php/connector.minimal.php') }}',  // connector URL (REQUIRED)
+				lang: 'fr',				
+				resizable:true,
+				rememberLastDir :true,
+				ui : ['toolbar', 'places', 'tree', 'path', 'stat'],
+			}).elfinder('instance');  
+			
+		});
+	</script>
+
+{% endblock %}
+
+
+
+
+
+

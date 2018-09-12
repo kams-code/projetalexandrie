@@ -1,0 +1,120 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+
+	<li>
+		<a href="#" class="prev">Abonnement</a>
+	</li>
+	
+	
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Abonnement {% endblock %}
+
+{% block contentForm %}
+
+	{#{{ form_widget(form_abonnement) }}#}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_abonnement) }}
+	
+	<div class="row">
+	<div class="col-md-8">
+	
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_abonnement.isActive, "Activé")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+				{{ form_errors(form_abonnement.isActive) }}
+				{{ form_widget(form_abonnement.isActive, {'attr':{'class':'form-control iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_abonnement.designation, "Designation")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_abonnement.designation) }}
+			  {{ form_widget(form_abonnement.designation, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_abonnement.duration, "Durée ( nombre de jour ) ")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_abonnement.duration) }}
+			  {{ form_widget(form_abonnement.duration, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_abonnement.price, "Prix ( en EURO ) ")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_abonnement.price) }}
+			  {{ form_widget(form_abonnement.price, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		<br/>
+		
+		<div class="col-md-12">
+		
+			<div class="row">
+				<div class="form-group">
+					<br/>
+				  <div class="col-md-12">
+				  {{ form_label(form_abonnement.description, "Description")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form_abonnement.description) }}
+				  {{ form_widget(form_abonnement.description, {'attr':{'class':'form-control texteditor'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+			
+			<br/>
+			
+		</div>	
+		
+	</div>
+	</div>
+	
+	
+	<br/>
+	
+	{{ form_rest(form_abonnement) }}
+	
+{% endblock %}

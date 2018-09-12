@@ -1,0 +1,272 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#" class="prev">Jurisprudence</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Jurisprudence {% endblock %}
+
+{% block contentForm %}
+
+	{# {{ form_widget(form_jurisprudence) }} #}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_jurisprudence) }}
+	<div class="row">
+	<div class="col-md-6">
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.designation, "Titre")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.designation) }}
+			  {{ form_widget(form_jurisprudence.designation, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.num, "Numéro")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.num) }}
+			  {{ form_widget(form_jurisprudence.num, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.dateLoi, "Date")}} : 
+			  </div>
+			  
+			  <div class="col-md-6">
+			  {{ form_errors(form_jurisprudence.dateLoi) }}
+			  {{ form_widget(form_jurisprudence.dateLoi, {'attr':{'class':'form-control', }}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.nomTribunal, "Juridiction")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.nomTribunal) }}
+			  {{ form_widget(form_jurisprudence.nomTribunal, {'attr':{'class':'form-control', 'list':'juridiction'}}) }}
+				<datalist id="juridiction">
+				{% for item in jurisprudences %}
+				  <option value="{{item.nomTribunal}}">
+				{% endfor  %}  
+				</datalist>
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.sectionTribunal, "Section Juridiction")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.sectionTribunal) }}
+			  {{ form_widget(form_jurisprudence.sectionTribunal, {'attr':{'class':'form-control', 'list':'section'}}) }}
+			  <datalist id="section">
+				{% for item in sections %}
+				  <option value="{{item.sectionTribunal}}">
+				{% endfor  %}  
+			  </datalist>
+			  </div>
+			  
+			</div>
+		</div>
+		
+		
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.nature, "Nature de la décision")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.nature) }}
+			  {{ form_widget(form_jurisprudence.nature, {'attr':{'class':'form-control selectnature'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		<a href="#" class="addNatureLink"><i class="glyphicon glyphicon-plus"></i>  ajouter une nouvelle nature... </a><br/>
+
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.decision_attaque, "Décision attaquée")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.decision_attaque) }}
+			  {{ form_widget(form_jurisprudence.decision_attaque, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.textes, "Textes appliqués")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.textes) }}
+			  {{ form_widget(form_jurisprudence.textes, {'attr':{'class':'form-control select-one'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.categories, "Catégorie (s)")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.categories) }}
+			  {{ form_widget(form_jurisprudence.categories, {'attr':{'class':'form-control  selectcat'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<a href="#" class="addcatlink"><i class="glyphicon glyphicon-plus"></i>  ajouter une nouvelle catégorie... </a>
+		
+		<br/><br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.keywords, "Mot clé (s)")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.keywords) }}
+			  {{ form_widget(form_jurisprudence.keywords, {'attr':{'class':'form-control  selectkey'}}) }}
+			  {### 'data-rel':'chosen' ###}
+			  </div>
+			  
+			</div>
+		</div>
+		<a href="#" class="addkeylink"><i class="glyphicon glyphicon-plus"></i>  ajouter un nouveau mot clé... </a>
+		
+		<br/><br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.datePublish, "Publié le ")}} : 
+			  </div>
+			  
+			  <div class="col-md-4">
+			  {{ form_errors(form_jurisprudence.datePublish) }}
+			  {{ form_widget(form_jurisprudence.datePublish, {'attr':{'class':''}}) }}
+			  </div>
+			  <div class="col-md-2">
+			  {{ form_errors(form_jurisprudence.publier) }}
+			  {{ form_widget(form_jurisprudence.publier, {'attr':{'class':'form-control iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/><br/>
+		
+		
+	</div>	
+	
+	<div class="col-md-6">
+		
+		<div class="row">
+			<div class="form-group">
+				
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.sommaire, "Sommaire")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.sommaire) }}
+			  {{ form_widget(form_jurisprudence.sommaire, {'attr':{'class':'form-control texteditor'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_jurisprudence.description, "Texte")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_jurisprudence.description) }}
+			  {{ form_widget(form_jurisprudence.description, {'attr':{'class':'form-control texteditor'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+	</div>	
+	
+	</div>	
+	
+		{{ form_rest(form_jurisprudence) }}
+	
+{% endblock %}

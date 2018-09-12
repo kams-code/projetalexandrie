@@ -1,0 +1,100 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#" class="prev">{{ title_prev_link }}</a>
+	</li>
+	
+	<li>
+		<a href="#" class="prev">{{ texte.designation }}</a>
+	</li>
+	
+{% endblock %}
+
+{% block formTitle %}  Édition Titre  {% endblock %}
+
+{% block contentForm %}
+
+	{#{{ form_widget(form_para) }}#}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_para) }}
+	
+	<div class="row">
+		<div class="col-md-8">
+		
+			<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form_para.designation, "Titre")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form_para.designation) }}
+				  {{ form_widget(form_para.designation, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+			<br/>
+			
+			<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-3">
+				  {{ form_label(form_para.is_article, "Article Texte de Loi")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  </div>
+				  
+				  <div class="col-md-1" style="text-align:left">
+				  {{ form_errors(form_para.is_article) }}
+				  {{ form_widget(form_para.is_article, {'attr':{'class':'form-control'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+			<br/>
+			
+			<div class="row">
+				<div class="form-group">
+				
+				  <div class="col-md-12">
+				  {{ form_label(form_para.parent, "Grand titre")}} : 
+				  </div>
+				  
+				  <div class="col-md-12">
+				  {{ form_errors(form_para.parent) }}
+				  {{ form_widget(form_para.parent, {'attr':{'class':'form-control select-one'}}) }}
+				  </div>
+				  
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="col-md-8">
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_para.description, "Description")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_para.description) }}
+			  {{ form_widget(form_para.description, {'attr':{'class':'form-control texteditor'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		</div>
+	</div>
+	<br/>
+	
+	
+		{{ form_rest(form_para) }}
+{% endblock %}

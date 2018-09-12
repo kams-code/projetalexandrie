@@ -1,0 +1,663 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+	<li>
+		<a href="#">paramètres</a>
+	</li>
+{% endblock %}
+	
+
+{% block formTitle %}  Édition paramètres {% endblock %}
+
+{% block contentForm %}
+
+	
+	{# {{ form_widget(form_setting) }} #}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	
+	
+	{{ form_errors(form_setting) }}
+	
+	<div class="row">
+	
+	<div class="col-md-6">
+	
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.connexionRequire, "Connexion Requise pour accéder aux ressources protégées")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.connexionRequire) }}
+			  {{ form_widget(form_setting.connexionRequire, {'attr':{'class':'form-control  iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.souscription, "Abonnement Requis pour accéder aux ressources protégées")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.souscription) }}
+			  {{ form_widget(form_setting.souscription, {'attr':{'class':'form-control  iphone-toggle'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.titreSite, "Titre du site")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.titreSite) }}
+			  {{ form_widget(form_setting.titreSite, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.description, "Description du site")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.description) }}
+			  {{ form_widget(form_setting.description, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+				
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.logo, "Logo ( Dimensions : 500 * 118 )")}} :  <a href="#" class="btn btn-default buttonImg">Selectionner une image</a>
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.logo) }}
+			  {{ form_widget(form_setting.logo, {'attr':{'class':'form-control logo'}}) }}
+			  <br/><img src="" style="width:100%" class="img-responsive img-logo" alt="">
+			 
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.email, "Adresse email")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.email) }}
+			  {{ form_widget(form_setting.email, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.tel, "téléphone")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.tel) }}
+			  {{ form_widget(form_setting.tel, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+				<br/>
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.adresse, "Adresse")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.adresse) }}
+			  {{ form_widget(form_setting.adresse, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.googlemap, "Localisation google map")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.googlemap) }}
+			  {{ form_widget(form_setting.googlemap, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.cgu, "Lien page conditions générales d'utilisation")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.cgu) }}
+			  {{ form_widget(form_setting.cgu, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="form-group" style="text-align:center">
+			<legend>Réseaux sociaux</legend>
+		</div>
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.facebook, "Facebook")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.facebook) }}
+			  {{ form_widget(form_setting.facebook, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.twitter, "Twitter")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.twitter) }}
+			  {{ form_widget(form_setting.twitter, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.youtube, "Youtube")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.youtube) }}
+			  {{ form_widget(form_setting.youtube, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.google, "Goolge")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.google) }}
+			  {{ form_widget(form_setting.google, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.linkedin, "Linkedin")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.linkedin) }}
+			  {{ form_widget(form_setting.linkedin, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_setting.viadeo, "Viadeo")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_setting.viadeo) }}
+			  {{ form_widget(form_setting.viadeo, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<br/>
+		<div class="form-group" style="text-align:center">
+			<legend>Actualités à la une</legend>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-12">
+				  <label> Selectionner la catégorie à la une : </label> 
+				</div>
+				<div class="col-md-12">
+					<select class="form-control select-one"  id="alaune" >
+						{% for item in categories %}
+							
+							{% if setting.aLaUne == item.id %}
+								<option value="{{item.id}}" selected>{{item.chemin}}</option>
+							{% else %}
+								<option value="{{item.id}}" >{{item.chemin}}</option>
+							{% endif %}	
+							
+						{% endfor %}
+						
+						
+					</select>
+						
+				  {{ form_errors(form_setting.aLaUne) }}
+				  {{ form_widget(form_setting.aLaUne, {'attr':{'class':'form-control'}}) }}
+			 
+				</div>
+			</div>
+		</div>
+		
+		
+		<br/>
+		
+		<div class="form-group" style="text-align:center">
+			<legend>Menu</legend>
+		</div>
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-12">
+				  <label> Menu principale : </label> 
+				</div>
+				<div class="col-md-12">
+					<select class="form-control"  id="mainmenu" >
+						<option value="0" selected> Selectionner un menu...</option>
+						{% for item in menus %}
+							
+							{% if setting.mainmenu == item.id %}
+								<option value="{{item.id}}" selected>{{item.designation}}</option>
+							{% else %}
+								<option value="{{item.id}}" >{{item.designation}}</option>
+							{% endif %}	
+							
+						{% endfor %}
+						
+						
+					</select>
+						
+				  {{ form_errors(form_setting.mainmenu) }}
+				  {{ form_widget(form_setting.mainmenu) }}
+			 
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-12">
+				  <label> Menu secondaire : </label> 
+				</div>
+				<div class="col-md-12">
+					<select class="form-control"  id="secondarymenu" >
+						<option value="0" selected> Selectionner un menu...</option>
+						{% for item in menus %}
+							
+							{% if setting.secondarymenu == item.id %}
+								<option value="{{item.id}}" selected>{{item.designation}}</option>
+							{% else %}
+								<option value="{{item.id}}" >{{item.designation}}</option>
+							{% endif %}	
+							
+						{% endfor %}
+					</select>
+						
+				  {{ form_errors(form_setting.secondarymenu) }}
+				  {{ form_widget(form_setting.secondarymenu) }}
+			 
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-12">
+				  <label> Pied de page menu 1 : </label> 
+				</div>
+				<div class="col-md-12">
+					<select class="form-control"  id="menu3" >
+						<option value="0" selected> Selectionner un menu...</option>
+						{% for item in menus %}
+							
+							{% if setting.menu3 == item.id %}
+								<option value="{{item.id}}" selected>{{item.designation}}</option>
+							{% else %}
+								<option value="{{item.id}}" >{{item.designation}}</option>
+							{% endif %}	
+							
+						{% endfor %}
+						
+						
+					</select>
+						
+				  {{ form_errors(form_setting.menu3) }}
+				  {{ form_widget(form_setting.menu3) }}
+			 
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<div class="col-md-12">
+				  <label> Pied de page menu 2 : </label> 
+				</div>
+				<div class="col-md-12">
+					<select class="form-control"  id="menu4" >
+						<option value="0" selected> Selectionner un menu...</option>
+						{% for item in menus %}
+							
+							{% if setting.menu4 == item.id %}
+								<option value="{{item.id}}" selected>{{item.designation}}</option>
+							{% else %}
+								<option value="{{item.id}}" >{{item.designation}}</option>
+							{% endif %}	
+							
+						{% endfor %}
+						
+						
+					</select>
+						
+				  {{ form_errors(form_setting.menu4) }}
+				  {{ form_widget(form_setting.menu4) }}
+			 
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<div class="col-md-12">
+				  <label> Pied de page menu 3 : </label> 
+				</div>
+				<div class="col-md-12">
+					<select class="form-control"  id="menu5" >
+						<option value="0" selected> Selectionner un menu...</option>
+						{% for item in menus %}
+							
+							{% if setting.menu5 == item.id %}
+								<option value="{{item.id}}" selected>{{item.designation}}</option>
+							{% else %}
+								<option value="{{item.id}}" >{{item.designation}}</option>
+							{% endif %}	
+							
+						{% endfor %}
+						
+						
+					</select>
+						
+				  {{ form_errors(form_setting.menu5) }}
+				  {{ form_widget(form_setting.menu5) }}
+			 
+				</div>
+			</div>
+			
+		</div>
+	
+		<br/><br/><br/>
+		
+		
+	</div>	
+	
+	
+	</div>	
+	
+	{{ form_rest(form_setting) }}
+	
+	<!-- popup elfinder  -->
+	<div class="modal" id="mediatheque">
+		  <div class="modal-dialog modal-lg" style="width:75%; margin:auto; margin-top:50px;">
+			<div class="modal-content" style="background:black">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">x</button>
+				<h4 class="modal-title">Médiathèque</h4>
+			  </div>
+			  <div class="modal-body">
+				<div id="elfinder"></div><br/><br/><br/>
+			  </div>
+			</div>
+		  </div>
+	</div>
+	
+	
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ parent() }}
+	<script>
+		$( document ).ready( function() {
+		
+			
+			$('#alaune').on('change', function (event) {
+				
+				$('#legiafrica_apibundle_setting_aLaUne').val($(this).val());
+							
+			});
+			
+			$('#mainmenu').on('change', function (event) {
+				
+				$('#legiafrica_apibundle_setting_mainmenu').val($(this).val());
+							
+			});
+			
+			$('#secondarymenu').on('change', function (event) {
+				
+				$('#legiafrica_apibundle_setting_secondarymenu').val($(this).val());
+							
+			});
+			
+			$('#menu3').on('change', function (event) {
+				
+				$('#legiafrica_apibundle_setting_menu3').val($(this).val());
+							
+			});
+			
+			$('#menu4').on('change', function (event) {
+				
+				$('#legiafrica_apibundle_setting_menu4').val($(this).val());
+							
+			});
+			
+			$('#menu5').on('change', function (event) {
+				
+				$('#legiafrica_apibundle_setting_menu5').val($(this).val());
+							
+			});
+			
+			$('#main-form').on('submit', function (event) {
+			
+				// On empêche le navigateur de soumettre le formulaire
+				event.preventDefault();
+				
+				//$('#button-submit').button('loading');
+				
+				//alert($('#secondarymenu').val());
+				swal({
+				  title: "Confirmer l'enregistrement des paramètres" ,
+				  text: "",
+				  type: "warning",
+				  showCancelButton: true,
+				  cancelButtonText: "Annuler",
+				  confirmButtonColor: "#DD6B55",
+				  confirmButtonText: "Enregistrer",
+				  closeOnConfirm: false,
+				  showLoaderOnConfirm: true,
+				},
+				function(){
+				  
+					//$('#button-submit').button('loading');
+					
+					var $form = $('#main-form');
+					var formdata = (window.FormData) ? new FormData($form[0]) : null;
+					var data = (formdata !== null) ? formdata : $form.serialize();
+					
+					$.ajax({
+						url: document.location,
+						type: 'POST',
+						contentType: false, // obligatoire pour de l'upload
+						processData: false, // obligatoire pour de l'upload
+						dataType: 'text', // selon le retour attendu
+						timeout: 60000, //une minute pour executer sinon error
+						data: data,
+						success: function (response) {
+							
+							
+							if(response == "ok")
+							{
+								swal("enregistrement effectué!", "", "success");
+							}
+							else
+							{
+								swal("enregistrement non effectué!", "", "error");
+							}
+						},
+						error: function(){
+							swal.enableButtons();
+							swal("ERREUR!", 'la requete n a pas abouti', "error")
+							
+						}
+					});
+				
+				});
+				
+			});
+			
+		} );
+    </script>
+
+{% endblock %}
+
+{% block scriptsElFinder %}
+
+	<script type="text/javascript" charset="utf-8">
+    
+		$().ready(function() {
+		
+			//chargement de l'image
+			if ($('.logo').val() != "")
+			{
+				$('.img-logo').attr('src', $('.logo').val());
+			}
+			
+		
+			$('.buttonImg').on('click', function (event) {
+		
+				//retour à la page précédente
+				$('#mediatheque').modal('show');
+			
+			});
+			
+		   var elf = $('#elfinder').elfinder({
+		   
+				height:'400',	
+				url : '{{ asset('bundles/ericobackend/bower_components/elFinder-2.0.7/php/connector.minimal.php') }}',  // connector URL (REQUIRED)
+				lang: 'fr',				
+				resizable:false,
+				rememberLastDir :true,
+				onlyMimes: ["image"], // display all images
+				validName: true,
+				getFileCallback : function(file) {
+					
+					//fileUrl =   file.url.substring(8); //on elnlève le debut de la chaine /upload/ (8 caractères)
+					
+					/*if( addimg($('.inputimgselect'), fileUrl) )
+					{
+						$('.modal').modal('hide');
+						
+					}*/
+					
+					$('.logo').val(file.url);
+					
+					$('.img-logo').attr('src', file.url);
+					
+					$('#mediatheque').modal('hide');
+					
+				},
+			}).elfinder('instance');  
+
+
+			
+			
+			
+		});
+		
+	</script>
+
+{% endblock %}

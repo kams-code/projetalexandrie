@@ -1,0 +1,44 @@
+{%extends "EricoBackendBundle::form.html.twig" %}
+
+{% block title %}affichage{% endblock %}
+{% block contentForm %}
+    {% block body %}
+        <div class="well">
+            <table>
+            
+                <tr>
+                    <th>titre</th>
+                    <th>nom de l'auteur</th>
+                    <th>specialite auteur</th>
+                    <th>date de publication</th>
+                    <th>onglet</th>
+                </tr>
+
+
+                {% for doc in doctrine %}
+                    <tr>
+                        <td>{{doc.titreDocument}}</td>
+                        <td>{{doc.nomAuteur}}</td>
+                        <td>{{doc.specialite}}</td>
+                        <td>{{doc.datePublication|date('Y-m-d')}}</td>
+                        <td>
+                       
+                            <a class="" href="{{ path('erico_backend_editdoctrine_page',{'id': doc.id})}}" title="modifier">    
+                                <i class="glyphicon glyphicon-edit icon-white"></i>  
+                            </a> 
+                            <a class="" href="{{ path('erico_backend_deletedoctrine_page',{'id': doc.id})}}" title="supprimer">
+                                <i class="glyphicon glyphicon-trash icon-white"></i>
+                            </a>
+                            <a class="" href="{{ path('erico_backend_texte_page', {'id': doc.id, 'title_prev_link': 'texte-de-doctrine'})}}" title="ajouter">
+                                 <i class="glyphicon glyphicon-plus"></i>
+                            </a>
+                            
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    {% endblock %}
+{% endblock %}

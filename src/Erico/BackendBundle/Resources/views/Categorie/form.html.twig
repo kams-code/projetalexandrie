@@ -1,0 +1,92 @@
+{% extends "EricoBackendBundle::form.html.twig" %}
+
+{% block page %}
+
+	<li>
+		<a href="#" class="prev">Catégorie</a>
+	</li>
+	
+	
+	
+{% endblock %}
+
+{% block formTitle %}  Édition catégorie {% endblock %}
+
+{% block contentForm %}
+
+	{#{{ form_widget(form_cat) }}#}
+	
+	{# Les erreurs générales du formulaire. #}
+	
+	{{ form_errors(form_cat) }}
+	
+	<div class="row">
+	<div class="col-md-8">
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_cat.designation, "Designation")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_cat.designation) }}
+			  {{ form_widget(form_cat.designation, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_cat.parent, "Catégorie parente")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_cat.parent) }}
+			  {{ form_widget(form_cat.parent, {'attr':{'class':'form-control select-one'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_cat.image, "Image")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_cat.image) }}
+			  {{ form_widget(form_cat.image, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group">
+			
+			  <div class="col-md-12">
+			  {{ form_label(form_cat.description, "Description ")}} : 
+			  </div>
+			  
+			  <div class="col-md-12">
+			  {{ form_errors(form_cat.description) }}
+			  {{ form_widget(form_cat.description, {'attr':{'class':'form-control'}}) }}
+			  </div>
+			  
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	
+	<br/>
+	
+	{{ form_rest(form_cat) }}
+	
+{% endblock %}

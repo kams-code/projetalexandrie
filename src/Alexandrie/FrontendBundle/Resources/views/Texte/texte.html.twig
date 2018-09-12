@@ -1,0 +1,120 @@
+{% extends "AlexandrieFrontendBundle::layout2.html.twig" %}
+
+
+{% block style %} 
+	
+	<style>
+	 
+	  .affix {
+		  top:20px;
+	  }
+	  
+	</style>
+{% endblock %}
+
+{% block sideBar %}
+
+	<div class="page-header">
+		<h1><strong>Sommaire</strong><br></h1>
+	</div>
+	<div class="hidden-xs hidden-sm" data-spy="affix" data-offset-top="400"   style="width:100%; max-width:350px; max-height:550px; overflow:auto; z-index:1000;">
+		<div id="somTexte"  ></div>
+	</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+	<div class="page-header">
+       <h2 class="text-left"><strong>{{ texte.designation }}</strong><br><small>Subtext for header</small></h2>
+    </div>
+
+		
+	{{ texte.page|raw }}
+	
+{% endblock %}
+
+
+{% block script %}
+	<script>
+
+		$(function() {
+		
+			var SommaireTexte = [
+			  {
+				text: 'Article 1',
+				href: '#parent1',
+				tags: ['4'],
+				nodes: [
+				  {
+					text: 'Article 1.1',
+					href: '#child1',
+					tags: ['2'],
+					nodes: [
+					  {
+						text: 'Article 1.1.1',
+						href: '#grandchild1',
+						tags: ['0']
+					  },
+					  {
+						text: 'Article 1.1.1',
+						href: '#grandchild2',
+						tags: ['0']
+					  }
+					]
+				  },
+				  {
+					text: 'Article 1.2',
+					href: '#child2',
+					tags: ['0']
+				  }
+				]
+			  },
+			  {
+				text: 'Article 2',
+				href: '#parent2',
+				tags: ['0']
+			  },
+			  {
+				text: 'Article 3',
+				href: '#parent3',
+				 tags: ['0']
+			  },
+			  {
+				text: 'Article 4',
+				href: '#parent4',
+				tags: ['0']
+			  },
+			  {
+				text: 'Article 5',
+				href: '#parent5'  ,
+				tags: ['0']
+			  }
+			];
+			
+			
+			
+			var $tree = $('#somTexte').treeview({
+			  enableLinks: true,
+			  levels: 2,
+			  showTags: true,
+			  showCheckbox: false,
+			  color: "#2e3192",
+			  highlightSelected: true,
+			  selectedColor: "white",
+			  selectedBackColor: "#3b5998",
+			  onhoverColor: "#bdbdbd",
+			  showBorder: true,
+			  backColor: "#f8f8f8",
+			  data: JSON.parse({{ texte.jsonParagraphes|json_encode|raw }}), // ou tout simplement {{ texte.jsonParagraphes|json_encode|raw }} car le plugin boostrap stree view va se charger de parser
+			  //data: SommaireTexte 
+			  
+			});
+			
+			
+
+		});
+		
+	</script>            
+{% endblock %}

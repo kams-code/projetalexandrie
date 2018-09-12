@@ -1,0 +1,189 @@
+<?php
+
+namespace Erico\ApiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Erico\ApiBundle\Entity\Content;
+
+/**
+ * Categorie
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Erico\ApiBundle\Entity\CategorieRepository")
+ */
+class Categorie extends Content
+{
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     */
+    private $image;
+
+
+	
+	/**
+	* @ORM\ManyToOne(targetEntity="Erico\ApiBundle\Entity\Categorie", inversedBy="fils")
+	* @ORM\JoinColumn(nullable=true)
+	*/
+	private $parent;
+	
+	
+	
+	private $chemin;
+	
+	
+	/**
+	* @ORM\OneToMany(targetEntity="Erico\ApiBundle\Entity\Categorie",
+	mappedBy="parent")
+	*/
+	private $fils; 
+	
+	
+	public function __construct()
+	{
+		parent::__construct();
+
+	}
+	
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Categorie
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Categorie
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Erico\ApiBundle\Entity\Categorie $parent
+     *
+     * @return Categorie
+     */
+    public function setParent(\Erico\ApiBundle\Entity\Categorie $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Erico\ApiBundle\Entity\Categorie
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+	
+	
+	public function setChemin($chemin)
+    {
+        $this->chemin = $chemin;
+
+        return $this;
+    }
+
+    public function getChemin()
+    {
+		
+		$nom = $this->getDesignation();
+        $parent = $this->parent;
+		
+		while ($parent != null)
+		{
+			$nom = $parent->getDesignation().' / '.$nom ;
+			$parent = $parent->getParent();
+			// instructions à exécuter dans la boucle
+		}
+		
+		return $nom;
+		
+    }
+	
+    
+
+    /**
+     * Add fil
+     *
+     * @param \Erico\ApiBundle\Entity\Categorie $fil
+     *
+     * @return Categorie
+     */
+    public function addFil(\Erico\ApiBundle\Entity\Categorie $fil)
+    {
+        $this->fils[] = $fil;
+
+        return $this;
+    }
+
+    /**
+     * Remove fil
+     *
+     * @param \Erico\ApiBundle\Entity\Categorie $fil
+     */
+    public function removeFil(\Erico\ApiBundle\Entity\Categorie $fil)
+    {
+        $this->fils->removeElement($fil);
+    }
+
+    /**
+     * Get fils
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFils()
+    {
+        return $this->fils;
+    }
+}

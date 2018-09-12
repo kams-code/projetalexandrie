@@ -1,0 +1,332 @@
+{% extends "EricoBackendBundle::liste.html.twig" %}
+
+{% block page %}
+	<li>
+		commentaires
+	</li>
+	
+{% endblock %}
+	
+	
+{% block contentTablehead %}
+	<th class="col-xs-1" data-field="id" data-sortable="true">ID</th>
+	<th class="col-xs-1" data-field="auteur" data-sortable="true">Auteur</th>
+	<th class="col-xs-3" data-field="commentaire" data-sortable="true">Commentaire</th>
+	<th class="col-xs-3" data-field="publication" data-sortable="true">En reponse à</th>
+	<th class="col-xs-2" data-field="send" data-sortable="true">Envoyé le</th>
+	<th class="col-xs-1" data-field="approve" data-sortable="true">Approuvé</th>
+	<th class="col-xs-1" data-field="action" > </th>
+{% endblock %}
+
+{% block contentTableBody %}
+
+{% for item in commentaires %}
+	<tr>
+		<td>{{ item.id }}</td>
+		
+		<td>
+		{%  if item.user != null %}
+			{{ item.user.username }}
+		{%  else %}
+			
+		{%  endif  %}
+		</td>
+		
+		<td>
+			{%  if item.parent != null and item.parent.user != null %}
+			<p> En reponse à <a href="#" class="pop" data-html="true" data-toggle="popover" data-content="{{ item.parent.description|raw }}<br/><b>Commentaire : {{ item.parent.id }}</b>" title="{{ item.publication.designation }}">{{ item.parent.user.username }}</a></p>
+			{%  endif  %}
+			
+			{{ item.description|raw }}
+		</td>
+		
+		<td>
+		{{ item.publication.designation }}
+		</td>
+		
+		<td> {{ item.dateAjout|date("d M Y H:i") }} </td>
+		
+		<td>
+		{%  if item.approuver == true %}
+		<input data-no-uniform="true"  checked type="checkbox" class="iphone-toggle" disabled="">
+		{%  else %}
+		<input data-no-uniform="true" type="checkbox" class="iphone-toggle" disabled="">
+		{%  endif  %}
+		</td>
+		
+		<td class="center">
+
+			<div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Actions
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    
+					<li>
+					{%  if item.approuver == false %}
+						<a class="approve"  href="#" data-id="{{item.id}}" data-approve="1" data-designation="{{item.description|striptags|slice(0, 70)}}...">
+							<i class="fa fa-thumbs-o-up" ></i>
+							Approuver
+						</a>
+					{%  else  %}
+					
+						<a class="approve"  href="#" data-id="{{item.id}}" data-approve="0" data-designation="{{item.description|striptags|slice(0, 70)}}...">
+							<i class="fa fa-thumbs-o-down" ></i>
+							Déapprouver
+						</a>
+						
+					{%  endif  %}
+					</li>
+						
+					<li class="divider"></li>
+					
+					<li>
+						{%  if item.user != null %}
+						<a class="repondre"  href="#" data-parent="{{item.id}}" data-title="En reponse à {{ item.user.username }} dans ( {{ item.publication.designation }} )">
+						{%  else  %}
+						<a class="repondre"  href="#" data-parent="{{item.id}}" data-title="En reponse à {{ item.publication.designation }}">
+						{%  endif  %}
+							<i class="glyphicon glyphicon-share-alt"></i>
+							Répondre
+						</a>
+						
+					</li>
+					
+					<li class="divider"></li>
+					
+					<li>
+						<a class="" href="{{ path('erico_backend_updatecomment_page', {'id': item.id})}}">
+							<i class="glyphicon glyphicon-edit icon-white"></i>
+							Modifier
+						</a>
+					</li>
+					
+					<li class="divider"></li>
+					
+					<li>
+						<a class="delete-content" href="#" data-designation="{{item.description|striptags|slice(0, 70)}}..." data-id="{{item.id}}">
+							<i class="glyphicon glyphicon-trash icon-white"></i>
+							Supprimer
+						</a>
+					</li>
+					
+                </ul>
+            </div>
+			
+		</td>
+	</tr>
+{% endfor %}
+
+{% endblock %}
+
+
+{% block footer %}
+<!-- popup  -->
+<div class="modal" id="modal-comment">
+	  <div class="modal-dialog modal-md" style="">
+		<div class="modal-content" >
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">x</button>
+			<h4 class="modal-title" id="modal-title">
+			
+				En reponse à
+			
+			</h4>
+		  </div>
+		  <div class="modal-body">
+			<form id="form-comment" method="POST">
+				
+				{### {{ form_widget(form_comment) }} ###}
+				
+				<div class="row">
+					<div class="form-group">
+						<br/>
+					  <div class="col-md-12">
+					  {{ form_label(form_comment.description, "Commentaire")}} : 
+					  </div>
+					  
+					  <div class="col-md-12">
+					  {{ form_errors(form_comment.description) }}
+					  {{ form_widget(form_comment.description, {'attr':{'class':'form-control'}}) }}
+					  </div>
+					  
+					</div>
+				</div>
+				
+				<br/>
+				
+				{{ form_rest(form_comment) }}
+				
+				<span style="visibility:hidden;" id="loading"><i class="fa fa-spinner fa-spin fa-2x fa-fw"></i></span><button id="send-reponse" type="submit" class="btn btn-primary" >Repondre</button>
+				
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button class="btn btn-info" data-dismiss="modal">Fermer</button>
+		  </div>
+		</div>
+	  </div>
+</div>
+{% endblock  %}
+	
+
+
+{% block scriptsDatatable %}	
+
+
+{% endblock  %}
+
+
+{% block javascripts %}
+
+	{{ parent() }}
+	
+	<script type="text/javascript" charset="utf-8">
+	
+		 var parentReponse
+		 
+		$(document).ready(function() {
+		
+			$('body').on('click', '.pop', function (event) {
+				
+				event.preventDefault();
+				$(".pop").popover({placement:'top', trigger:'hover'}); 
+								
+				
+			});
+			
+			
+			
+		
+			//on applique l'évènement sur tout le body car il y a reconstruction du DOM par le plugin bootstrap-table
+			$('body').on('click', '.repondre', function (event) {
+				
+				$('#modal-title').html($(this).data('title'));
+				//retour à la page précédente
+				$('#modal-comment').modal('show');
+				//alert("");
+				parentReponse = $(this).data('parent');
+								
+				
+			});
+			
+			//on applique l'évènement sur tout le body car il y a reconstruction du DOM par le plugin bootstrap-table
+			$('body').on('click', '.approve', function (event) {
+				var title = "";
+				
+				var comment = $(this).data('id');
+				var approve = $(this).data('approve');
+				
+				if( approve == 1)
+					title = "Vous êtes sur le point d'approuver ce commentaire : ";
+					 
+				if( approve == 0)
+					title = "Vous êtes sur le point de désapprouver ce commentaire : ";
+				
+				var content =  $(this);
+				
+				swal({
+				  title: title,
+				  text: content.data('designation'),
+				  type: "warning",
+				  showCancelButton: true,
+				  cancelButtonText: "Annuler",
+				  confirmButtonColor: "#DD6B55",
+				  confirmButtonText: "Continuer",
+				  closeOnConfirm: false,
+				  showLoaderOnConfirm: true,
+				},
+				function(){
+				  
+					
+					
+					$.ajax({
+						url: '{{ path('erico_backend_approvecomment_page')}}?comment=' + comment + "&approve=" + approve,
+						type: 'GET',
+						dataType: 'text', // selon le retour attendu
+						timeout: 60000, //une minute pour executer sinon error
+						success: function (response) {
+							
+							if(response == "ok")
+							{
+								if( approve == 1)
+								swal("Commentaire approuver", "", "success");
+								 
+								if( approve == 0)
+									swal("Commentaire désapprouver", "", "success");
+						
+								document.location.reload(true);
+							}
+							else
+							{
+							
+								swal("ERREUR!", 'Echec de l\'operation', "error")
+							
+							}
+							
+							
+						},
+						error: function(){
+							//alert('la requete n a pas abouti');
+							swal.enableButtons();
+							swal("ERREUR!", 'la requete n a pas abouti', "error")
+						}
+					});
+					
+				  
+				});
+
+								
+				
+			});
+			
+			$('#form-comment').on('submit', function (event) {
+			
+				// On empêche le navigateur de soumettre le formulaire
+				event.preventDefault();
+				
+				$('#loading').css('visibility', 'visible');
+				
+				var $form = $(this);
+				var formdata = (window.FormData) ? new FormData($form[0]) : null;
+				var data = (formdata !== null) ? formdata : $form.serialize();
+				
+				$.ajax({
+					url: '{{ path('erico_backend_comment_page')}}?parent=' + parentReponse,
+					type: 'POST',
+					contentType: false, // obligatoire pour de l'upload
+					processData: false, // obligatoire pour de l'upload
+					dataType: 'text', // selon le retour attendu
+					timeout: 60000, //une minute pour executer sinon error
+					data: data,
+					success: function (response) {
+						
+						if( response == "ok" )
+						{
+							//$('#loading').css('visibility', 'hidden');
+							swal("Commentaire envoyé!", "", "success");
+							document.location.reload(true);
+						}
+						else
+						{
+							swal("Commentaire non envoyé!", "", "error");
+						
+						}
+						
+					},
+					error: function(){
+						$('#loading').css('visibility', 'hidden');
+						alert('la requete n a pas abouti');
+						
+					}
+				});
+			
+			});
+		
+			
+		});
+		
+	</script>
+
+{% endblock %}

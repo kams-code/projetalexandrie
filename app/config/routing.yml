@@ -1,0 +1,18 @@
+alexandrie_frontend:
+    resource: "@AlexandrieFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+erico_backend:
+    resource: "@EricoBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login:
+    path:   /login
+    defaults:  { _controller: EricoBackendBundle:User:login }
+
+login_check:
+    path:   /admin/login_check
+
+logout:
+    path:   /admin/logout
+

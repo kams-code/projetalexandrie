@@ -1,0 +1,3 @@
+legiafrica_api_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: EricoApiBundle:Default:index }
